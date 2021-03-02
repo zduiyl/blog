@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>sourcetree提交到girrit | Gridea</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://zduiyl.github.io//favicon.ico?v=1614669805078">
+<link rel="stylesheet" href="https://zduiyl.github.io//styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="SourceTree 提交代码到gerrit
+remote: You are not allowed to perform this operation.
+remote: To push into this reference you ne..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://zduiyl.github.io/">
+        <img src="https://zduiyl.github.io//images/avatar.png?v=1614669805078" class="site-logo">
+        <h1 class="site-title">Gridea</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      温故而知新
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://zduiyl.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">sourcetree提交到girrit</h2>
+            <div class="post-date">2021-03-01</div>
+            
+            <div class="post-content" v-pre>
+              <p><a href="https://www.jianshu.com/p/2e196c7c6d73?from=groupmessage">SourceTree 提交代码到gerrit</a></p>
+<p>remote: You are not allowed to perform this operation.<br>
+remote: To push into this reference you need 'Push' rights.<br>
+remote: User: xuguiyuan<br>
+remote: Please read the documentation and contact an administrator<br>
+remote: if you feel the configuration is incorrect<br>
+remote:</p>
+<p>remote: Processing changes: refs: 1<br>
+remote: Processing changes: refs: 1, done<br>
+To ssh://192.168.140.253:29418/hy-web-hyweb<br>
+! [remote rejected]   v3.1.0_dev -&gt; v3.1.0_dev (prohibited by Gerrit: ref update access denied)<br>
+error: failed to push some refs to 'ssh://xuguiyuan@192.168.140.253:29418/hy-web-hyweb'</p>
+<p>git config remote.origin.push refs/heads/<em>:refs/for/</em></p>
+<p><a href="https://www.cnblogs.com/xiaodai0/p/10291366.html">git 查看、切换用户</a></p>
+<p>remote: ERROR:  In commit fbd276d3b6a9dadb6bea5314115a3a31b702af65<br>
+remote: ERROR:  committer email address xgy@jxsec.cn<br>
+remote: ERROR:  does not match your user account.<br>
+remote: ERROR:<br>
+remote: ERROR:  The following addresses are currently registered:<br>
+remote: ERROR:    zduiy.xgy@jeeseen.com<br>
+remote: ERROR:<br>
+remote: ERROR:  To register an email address, please visit:<br>
+remote: ERROR:  http://192.168.140.253/#/settings/contact</p>
+<p>查看用户名：</p>
+<p>git config user.name<br>
+查看用户邮箱：</p>
+<p>git config user.email<br>
+修改命令：</p>
+<p>修改用户名：</p>
+<p>git config --global user.name &quot;Your_username&quot;<br>
+修改用户邮箱：</p>
+<p>git config --global user.email &quot;Your_email&quot;<br>
+注：user.name或者user.email后需有一个空格，再写你的用户名或者用户邮箱</p>
+<p>git push origin v3.1.0_dev<br>
+Enumerating objects: 7, done.<br>
+Counting objects: 100% (7/7), done.<br>
+Delta compression using up to 8 threads<br>
+Compressing objects: 100% (4/4), done.<br>
+Writing objects: 100% (4/4), 542 bytes | 542.00 KiB/s, done.<br>
+Total 4 (delta 2), reused 0 (delta 0)<br>
+remote: Resolving deltas: 100% (2/2)<br>
+remote: Processing changes: refs: 1, done<br>
+remote: ERROR: [83d647e] missing Change-Id in commit message footer<br>
+remote:<br>
+remote: Hint: To automatically insert Change-Id, install the hook:<br>
+remote:   gitdir=$(git rev-parse --git-dir); scp -p -P 29418 xuguiyuan@192.168.140.253:hooks/commit-msg ${gitdir}/hooks/<br>
+remote: And then amend the commit:<br>
+remote:   git commit --amend<br>
+remote:<br>
+To ssh://192.168.140.253:29418/hy-web-hyweb<br>
+! [remote rejected]   v3.1.0_dev -&gt; refs/for/v3.1.0_dev ([83d647e] missing Change-Id in commit message footer)<br>
+error: failed to push some refs to 'ssh://xuguiyuan@192.168.140.253:29418/hy-web-hyweb'</p>
+<p><a href="https://blog.csdn.net/sinat_41170942/article/details/80136064">提交gerrit缺失changeId</a><br>
+scp -p -P 29418 xuguiyuan@192.168.140.253:hooks/commit-msg .git/hooks/</p>
+<p><a href="https://blog.csdn.net/xinluke/article/details/52229431">Linux 使用 cp 命令强制覆盖功能</a></p>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://zduiyl.github.io/post/sad/">
+                  <h3 class="post-title">
+                    每日记录
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>

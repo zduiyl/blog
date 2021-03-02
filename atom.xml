@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zduiyl.github.io/</id>
     <title>Gridea</title>
-    <updated>2021-02-23T02:31:05.029Z</updated>
+    <updated>2021-03-02T09:59:43.653Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zduiyl.github.io/"/>
     <link rel="self" href="https://zduiyl.github.io/atom.xml"/>
@@ -10,6 +10,152 @@
     <logo>https://zduiyl.github.io/images/avatar.png</logo>
     <icon>https://zduiyl.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[microserver audit log]]></title>
+        <id>https://zduiyl.github.io/post/microserver-audit-log/</id>
+        <link href="https://zduiyl.github.io/post/microserver-audit-log/">
+        </link>
+        <updated>2021-03-02T01:38:55.000Z</updated>
+        <content type="html"><![CDATA[<p>client<br>
+用户操作日志：<br>
+某某用户新增了实训，add，{&quot;param1&quot;:&quot;&quot;, &quot;param2&quot;:&quot;&quot;}<br>
+某某用户修改了实训信息，modify，{&quot;param1&quot;: [&quot;a&quot;, &quot;b&quot;]}</p>
+<p>system<br>
+资源监控日志：<br>
+device，{&quot;cpu&quot;: &quot;50&quot;, &quot;memory&quot;: &quot;&quot;}<br>
+server1，{&quot;cpu&quot;: &quot;50&quot;, &quot;memory&quot;: &quot;&quot;}</p>
+<p>服务运行日志：<br>
+server_name1，error，2021-01-01 app/function/…… 29 logDetail<br>
+server_name2，warn，2021-02-01 app/function/…… 19 logDetail<br>
+server_name4，debug，2021-03-01 app/function/…… 39 logDetail</p>
+<p>database design</p>
+<p>source，ip，cre_time，username，log_descript，log_type，log_type_sm，log_detail，user_id，microtimestamp</p>
+<p>日志定时清理，日志存储时长，日志最大存储空间</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[sourcetree提交到girrit]]></title>
+        <id>https://zduiyl.github.io/post/sourcetree-ti-jiao-dao-girrit/</id>
+        <link href="https://zduiyl.github.io/post/sourcetree-ti-jiao-dao-girrit/">
+        </link>
+        <updated>2021-03-01T07:12:36.000Z</updated>
+        <content type="html"><![CDATA[<p><a href="https://www.jianshu.com/p/2e196c7c6d73?from=groupmessage">SourceTree 提交代码到gerrit</a></p>
+<p>remote: You are not allowed to perform this operation.<br>
+remote: To push into this reference you need 'Push' rights.<br>
+remote: User: xuguiyuan<br>
+remote: Please read the documentation and contact an administrator<br>
+remote: if you feel the configuration is incorrect<br>
+remote:</p>
+<p>remote: Processing changes: refs: 1<br>
+remote: Processing changes: refs: 1, done<br>
+To ssh://192.168.140.253:29418/hy-web-hyweb<br>
+! [remote rejected]   v3.1.0_dev -&gt; v3.1.0_dev (prohibited by Gerrit: ref update access denied)<br>
+error: failed to push some refs to 'ssh://xuguiyuan@192.168.140.253:29418/hy-web-hyweb'</p>
+<p>git config remote.origin.push refs/heads/<em>:refs/for/</em></p>
+<p><a href="https://www.cnblogs.com/xiaodai0/p/10291366.html">git 查看、切换用户</a></p>
+<p>remote: ERROR:  In commit fbd276d3b6a9dadb6bea5314115a3a31b702af65<br>
+remote: ERROR:  committer email address xgy@jxsec.cn<br>
+remote: ERROR:  does not match your user account.<br>
+remote: ERROR:<br>
+remote: ERROR:  The following addresses are currently registered:<br>
+remote: ERROR:    zduiy.xgy@jeeseen.com<br>
+remote: ERROR:<br>
+remote: ERROR:  To register an email address, please visit:<br>
+remote: ERROR:  http://192.168.140.253/#/settings/contact</p>
+<p>查看用户名：</p>
+<p>git config user.name<br>
+查看用户邮箱：</p>
+<p>git config user.email<br>
+修改命令：</p>
+<p>修改用户名：</p>
+<p>git config --global user.name &quot;Your_username&quot;<br>
+修改用户邮箱：</p>
+<p>git config --global user.email &quot;Your_email&quot;<br>
+注：user.name或者user.email后需有一个空格，再写你的用户名或者用户邮箱</p>
+<p>git push origin v3.1.0_dev<br>
+Enumerating objects: 7, done.<br>
+Counting objects: 100% (7/7), done.<br>
+Delta compression using up to 8 threads<br>
+Compressing objects: 100% (4/4), done.<br>
+Writing objects: 100% (4/4), 542 bytes | 542.00 KiB/s, done.<br>
+Total 4 (delta 2), reused 0 (delta 0)<br>
+remote: Resolving deltas: 100% (2/2)<br>
+remote: Processing changes: refs: 1, done<br>
+remote: ERROR: [83d647e] missing Change-Id in commit message footer<br>
+remote:<br>
+remote: Hint: To automatically insert Change-Id, install the hook:<br>
+remote:   gitdir=$(git rev-parse --git-dir); scp -p -P 29418 xuguiyuan@192.168.140.253:hooks/commit-msg ${gitdir}/hooks/<br>
+remote: And then amend the commit:<br>
+remote:   git commit --amend<br>
+remote:<br>
+To ssh://192.168.140.253:29418/hy-web-hyweb<br>
+! [remote rejected]   v3.1.0_dev -&gt; refs/for/v3.1.0_dev ([83d647e] missing Change-Id in commit message footer)<br>
+error: failed to push some refs to 'ssh://xuguiyuan@192.168.140.253:29418/hy-web-hyweb'</p>
+<p><a href="https://blog.csdn.net/sinat_41170942/article/details/80136064">提交gerrit缺失changeId</a><br>
+scp -p -P 29418 xuguiyuan@192.168.140.253:hooks/commit-msg .git/hooks/</p>
+<p><a href="https://blog.csdn.net/xinluke/article/details/52229431">Linux 使用 cp 命令强制覆盖功能</a></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[每日记录]]></title>
+        <id>https://zduiyl.github.io/post/sad/</id>
+        <link href="https://zduiyl.github.io/post/sad/">
+        </link>
+        <updated>2021-02-23T07:32:43.000Z</updated>
+        <content type="html"><![CDATA[<p>seq -i</p>
+<p><a href="https://www.cnblogs.com/diandianquanquan/p/11966426.html">查看ElasticSearch服务状态和结果的URL</a><br>
+/cat/_nodes?v<br>
+?v表示是否显示标题<br>
+/cat/health?v</p>
+<p>docker tag &lt;image_id&gt;</p>
+<p>[git 列出两个 commit 之间变更的文件列表]https://www.cnblogs.com/eleven24/p/8668138.html</p>
+<p>[git比较两个分支的文件的差异]https://blog.csdn.net/yzpbright/article/details/54143129</p>
+<p>Git diff branch1 branch2 --stat   //显示出所有有差异的文件列表<br>
+Git diff branch1 branch2 文件名(带路径)   //显示指定文件的详细差异<br>
+Git diff branch1 branch2                   //显示出所有有差异的文件的详细差异</p>
+<p>查看分支信息<br>
+git branch 查看本地分支<br>
+git branch -a 查看所有分支<br>
+git branch -r 查看所有远端分支</p>
+<p><a href="https://blog.csdn.net/X_And_Y/article/details/108568500">linux将文本文件按照行倒序输出</a></p>
+<p><a href="https://blog.csdn.net/sunkun2013/article/details/73277086">Linux：使用awk命令获取文本的某一行，某一列</a></p>
+<p>linux判断文件是否存在<br>
+https://www.cnblogs.com/xiongyunqi/p/3735773.html</p>
+<p>docker中elasticsearch如果使用volumn挂载了/var/lib/elasticsearch，/var/log/elasticsearch/，要修改这两个目录的用户和用户组chown -R /var/lib/elasticsearch /var/log/elasticsearc，不然elasticsearch不会生成日志，且启动会报错</p>
+<p>chown可以指定多个目录<br>
+chown -R root:root /var/lib/ /var/log</p>
+<p>修改最后一次提交的信息，仅能修改最后一次的msg<br>
+<a href="https://www.cnblogs.com/fe-linjin/p/">git高级浅入之当我们需要修改某次commit信息</a>10814935.html<br>
+git commit --amend</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[work sql squiry]]></title>
+        <id>https://zduiyl.github.io/post/work-sql-squiry/</id>
+        <link href="https://zduiyl.github.io/post/work-sql-squiry/">
+        </link>
+        <updated>2021-02-23T05:50:33.000Z</updated>
+        <content type="html"><![CDATA[<p>forceDirectedGraphShow</p>
+<p>alarmway_getCode 获取验证码</p>
+<p>user_get_code 获取个人信息验证码</p>
+<p>蜜罐</p>
+<p>honeypots_bindnode</p>
+<p>已改<br>
+/user/func_honeypots.php<br>
+/user/function.php<br>
+/user/func_honeypotsgroup.php<br>
+/user/trapnodegroup.php 剩getTree1函数<br>
+/user/datastatistics.php<br>
+/user/attackflow.php  剩attackflow_download无需改动<br>
+/user/attackvideo.php  只有attackvideo_list有用到rawquery，无需改动<br>
+fix: 在common/functions.php文件中使用orm方式替换原本的sql执行语句</p>
+<p>不改logFront.class.php<br>
+func_market  待定<br>
+func_page 无<br>
+func_serial.php 无<br>
+func_datareport.php 无</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Hello Gridea]]></title>
         <id>https://zduiyl.github.io/post/hello-gridea/</id>
