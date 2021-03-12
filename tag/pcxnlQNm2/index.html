@@ -1,139 +1,1182 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" >
 
-<title>Gridea | Gridea</title>
+<head>
+  <meta charset="UTF-8" />
 
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name="keywords" content="Zduiy静态个人博客">
+<meta name="description" content="">
+<meta name="theme-color" content="#000">
+<title>Zduiy Blog</title>
+<link rel="shortcut icon" href="/favicon.ico?v=1615538183368">
+<link rel="stylesheet" href="/media/css/pisces.css">
+<link rel="stylesheet" href="/media/fonts/font-awesome.css">
+<link
+  href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Rosario:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext"
+  rel="stylesheet" type="text/css">
 
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://zduiyl.github.io//favicon.ico?v=1614669805078">
-<link rel="stylesheet" href="https://zduiyl.github.io//styles/main.css">
+<link href="/media/hljs/styles/default.css"
+  rel="stylesheet">
+
+<link rel="stylesheet" href="/styles/main.css">
+
+<script src="/media/hljs/highlight.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.0/velocity.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.0/velocity.ui.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"
+  integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"
+  integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
+  integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"></script>
 
 
 
-<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
 
+</head>
 
-    <meta name="description" content="温故而知新">
-  </head>
-  <body>
-    <div id="app" class="main">
-
-      <div class="sidebar" :class="{ 'full-height': menuVisible }">
-  <div class="top-container" data-aos="fade-right">
-    <div class="top-header-container">
-      <a class="site-title-container" href="https://zduiyl.github.io/">
-        <img src="https://zduiyl.github.io//images/avatar.png?v=1614669805078" class="site-logo">
-        <h1 class="site-title">Gridea</h1>
-      </a>
-      <div class="menu-btn" @click="menuVisible = !menuVisible">
-        <div class="line"></div>
+<body>
+  <div class="head-top-line"></div>
+  <div class="header-box">
+    
+<div class="pisces">
+  <header class="header  ">
+    <div class="blog-header box-shadow-wrapper bg-color " id="header">
+      <div class="nav-toggle" id="nav_toggle">
+        <div class="toggle-box">
+          <div class="line line-top"></div>
+          <div class="line line-center"></div>
+          <div class="line line-bottom"></div>
+        </div>
       </div>
+      <div class="site-meta">       
+        <div class="site-title">
+          
+            <a href="/" class="brand">
+              <span>Zduiy Blog</span>
+            </a>  
+          
+        </div>
+        
+          <p class="subtitle">精于心，简于形</p>
+        
+      </div>
+      <nav class="site-nav" id="site_nav">
+        <ul id="nav_ul">
+          
+            
+            
+              
+            
+            <li class="nav-item ">
+              
+              
+                <a href="/" target="_self">
+                  <i class="fa fa-home"></i> 首页
+                </a>
+              
+            </li>
+          
+            
+            
+              
+            
+            <li class="nav-item ">
+              
+              
+                <a href="/archives/" target="_self">
+                  <i class="fa fa-archive"></i> 归档
+                </a>
+              
+            </li>
+          
+            
+            
+              
+            
+            <li class="nav-item ">
+              
+              
+                <a href="/tags/" target="_self">
+                  <i class="fa fa-tags"></i> 标签
+                </a>
+              
+            </li>
+          
+            
+            
+              
+            
+            <li class="nav-item ">
+              
+              
+                <a href="/post/about/" target="_self">
+                  <i class="fa fa-user"></i> 关于
+                </a>
+              
+            </li>
+          
+          
+            
+              <li class="nav-item ">
+                <a href="/friends/" target="_self">
+                  
+                    <i class="fa fa-address-book"></i> 友情链接
+                  
+                </a>
+              </li>
+            
+          
+          
+            <li id="fa_search" class="nav-item">
+              <a href="javascript:void(0);">
+                <i class="fa fa-search"></i> <span class="language" data-lan="search">搜索</span>
+              </a>
+            </li>
+          
+        </ul>
+      </nav>
     </div>
-    <div>
+  </header>
+</div>
+
+<script type="text/javascript"> 
+ 
+  let showNav = true;
+
+  let navToggle = document.querySelector('#nav_toggle'),
+  siteNav = document.querySelector('#site_nav');
+  
+  function navClick() {
+    let sideBar = document.querySelector('.sidebar');
+    let navUl = document.querySelector('#nav_ul');
+    navToggle.classList.toggle('nav-toggle-active');
+    siteNav.classList.toggle('nav-menu-active');
+    if (siteNav.classList.contains('nav-menu-active')) {
+      siteNav.style = "height: " + (navUl.children.length * 42) +"px !important";
+    } else {
+      siteNav.style = "";
+    }
+  }
+
+  navToggle.addEventListener('click',navClick);  
+</script>
+  </div>
+  <div class="main-continer">
+    
+    <div
+      class="section-layout  pisces">
+      <div class="section-layout-wrapper">
+        <div id="sidebarMeta" class="sidebar">
+    
+<div class="sidebar-wrapper box-shadow-wrapper bg-color">
+  <div class="sidebar-item">
+    <img class="site-author-image right-motion" src="/images/avatar.png"/>
+    <p class="site-author-name">Zduiy</p>
+    
+  </div>
+  <div class="sidebar-item side-item-stat right-motion">
+    <div class="sidebar-item-box">
+      <a href="/archives/">
+        
+        <span class="site-item-stat-count">10</span>
+        <span class="site-item-stat-name language" data-lan="article">文章</span>
+      </a>
+    </div>
+    <div class="sidebar-item-box">
+      <a href="">
+        <span class="site-item-stat-count">2</span>
+        <span class="site-item-stat-name language" data-lan="category">分类</span>
+      </a>
+    </div>
+    <div class="sidebar-item-box">
+      <a href="/tags/">
+        <span class="site-item-stat-count">2</span>
+        <span class="site-item-stat-name language" data-lan="tag">标签</span>
+      </a>
+    </div>
+  </div>
+  
+    
+  
+  
+
+
+
+</div>
+</div>
+<script>
+  let sidebarMeta = document.querySelector('#sidebarMeta');
+  let scheme = 'pisces';
+  let sidebarWrapper = document.querySelector('.sidebar-wrapper');
+  if (sidebarMeta && (scheme === 'pisces' || scheme === 'gemini')) {
+    document.addEventListener('scroll', function(e) {
+      if (document.scrollingElement.scrollTop > parseInt(sidebarMeta.style.marginTop) + 10) {
+        sidebarWrapper.classList.add('home-sidebar-fixed')
+      } else {
+        sidebarWrapper.classList.remove('home-sidebar-fixed')
+      }
+    });
+  }
+  </script>
+        <div class="section-box tag-line box-shadow-wrapper">
+          <section class="section tags-section posts-expand bg-color">
+            <div class="padding-wrapper">
+  <div class="tag-timeline-box">
+    <div class="tag-timeline-wrapper">
+      <div class="tag-timeline-title">
+        <h2>
+          Gridea
+          <small class="language" data-lan="tag">标签</small>
+        </h2>
+      </div>
       
-        
-          <a href="/" class="site-nav">
-            首页
-          </a>
-        
       
-        
-          <a href="/archives" class="site-nav">
-            归档
-          </a>
-        
       
-        
-          <a href="/tags" class="site-nav">
-            标签
-          </a>
-        
       
-        
-          <a href="/post/about" class="site-nav">
-            关于
-          </a>
-        
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <a href="https://zduiyl.github.io/post/hello-gridea/">
+        <div class="motion-warpper">
+          <div class="tag-post-node">
+            <h1>
+              12-12
+              <small>Hello Gridea</small>
+            </h1>
+          </div>
+        </div>
+      </a>
+      
+      
       
     </div>
   </div>
-  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
-    <div class="social-container">
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    </div>
-    <div class="site-description">
-      温故而知新
-    </div>
-    <div class="site-footer">
-      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://zduiyl.github.io//atom.xml" target="_blank">RSS</a>
-    </div>
-  </div>
 </div>
-
-
-      <div class="main-container">
-        <div class="content-container" data-aos="fade-up">
-          <h2 class="current-tag">标签: Gridea</h2>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://zduiyl.github.io/post/hello-gridea/">
-                  <h2 class="post-title">Hello Gridea</h2>
-                </a>
-                <div class="post-date">
-                  2018-12-12
-                </div>
-                <div class="post-abstract">
-                  <p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-
-                </div>
-              </div>
-              
-                <a class="right" href="https://zduiyl.github.io/post/hello-gridea/">
-                  <div class="feature-container" style="background-image: url('https://zduiyl.github.io//post-images/hello-gridea.png')">
-                  </div>
-                </a>
-              
-            </article>
-          
-
-          <div class="pagination-container">
-  
-  
-</div>
-
+          </section>
         </div>
       </div>
     </div>
+    <div class="footer-box">
+  <footer class="footer">
+    <div class="copyright">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | © 2019-2020 Theme By <a
+        href="https://github.com/hsxyhao/gridea-theme-next" target="_blank">HsxyHao</a>
+    </div>
+    <div class="poweredby">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+    </div>
+  </footer>
+  
+  
+  <div class="pisces back-to-top" id="back_to_top">
+    <i class="fa fa-arrow-up"></i>
+    
+    <span class="scrollpercent">
+      <span id="back_to_top_text">0</span>%
+    </span>
+    
+  </div>
+  
+  
+  
+</div>
+<script>
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-<script type="application/javascript">
+  let sideBarOpen = 'sidebar-open';
+  let body = document.body;
+  let back2Top = document.querySelector('#back_to_top'),
+    back2TopText = document.querySelector('#back_to_top_text'),
+    drawerBox = document.querySelector('#drawer_box'),
+    rightSideBar = document.querySelector('.sidebar'),
+    viewport = document.querySelector('body');
 
-AOS.init();
+  function scrollAnimation(currentY, targetY) {
 
-var app = new Vue({
-  el: '#app',
-  data: {
-    menuVisible: false,
-  },
-})
+    let needScrollTop = targetY - currentY
+    let _currentY = currentY
+    setTimeout(() => {
+      const dist = Math.ceil(needScrollTop / 10)
+      _currentY += dist
+      window.scrollTo(_currentY, currentY)
+      if (needScrollTop > 10 || needScrollTop < -10) {
+        scrollAnimation(_currentY, targetY)
+      } else {
+        window.scrollTo(_currentY, targetY)
+      }
+    }, 1)
+  }
 
+  back2Top.addEventListener("click", function (e) {
+    scrollAnimation(document.scrollingElement.scrollTop, 0);
+    e.stopPropagation();
+    return false;
+  });
+
+  window.addEventListener('scroll', function (e) {
+    let percent = document.scrollingElement.scrollTop / (document.scrollingElement.scrollHeight - document.scrollingElement.clientHeight) * 100;
+    if (percent > 1 && !back2Top.classList.contains('back-top-active')) {
+      back2Top.classList.add('back-top-active');
+    }
+    if (percent == 0) {
+      back2Top.classList.remove('back-top-active');
+    }
+    if (back2TopText) {
+      back2TopText.textContent = Math.floor(percent);
+    }
+  });
+
+
+  let hasCacu = false;
+  window.onresize = function () {
+    calcuHeight();
+  }
+
+  function calcuHeight() {
+    // 动态调整站点概览高度
+    if (!hasCacu && back2Top.classList.contains('pisces') || back2Top.classList.contains('gemini')) {
+      let sideBar = document.querySelector('.sidebar');
+      let navUl = document.querySelector('#site_nav');
+      sideBar.style = 'margin-top:' + (navUl.offsetHeight + navUl.offsetTop + 15) + 'px;';
+      hasCacu = true;
+    }
+  }
+  calcuHeight();
+
+  let open = false, MOTION_TIME = 300, RIGHT_MOVE_DIS = '320px';
+
+  if (drawerBox) {
+    let rightMotions = document.querySelectorAll('.right-motion');
+    let right = drawerBox.classList.contains('right');
+
+    let transitionDir = right ? "transition.slideRightIn" : "transition.slideLeftIn";
+
+    let openProp, closeProp;
+    if (right) {
+      openProp = {
+        paddingRight: RIGHT_MOVE_DIS
+      };
+      closeProp = {
+        paddingRight: '0px'
+      };
+    } else {
+      openProp = {
+        paddingLeft: RIGHT_MOVE_DIS
+      };
+      closeProp = {
+        paddingLeft: '0px'
+      };
+    }
+
+    drawerBox.onclick = function () {
+      open = !open;
+      window.Velocity(rightSideBar, 'stop');
+      window.Velocity(viewport, 'stop');
+      window.Velocity(rightMotions, 'stop');
+      if (open) {
+        window.Velocity(rightSideBar, {
+          width: RIGHT_MOVE_DIS
+        }, {
+          duration: MOTION_TIME,
+          begin: function () {
+            window.Velocity(rightMotions, transitionDir, {});
+          }
+        })
+        window.Velocity(viewport, openProp, {
+          duration: MOTION_TIME
+        });
+      } else {
+        window.Velocity(rightSideBar, {
+          width: '0px'
+        }, {
+          duration: MOTION_TIME,
+          begin: function () {
+            window.Velocity(rightMotions, {
+              opacity: 0
+            });
+          }
+        })
+        window.Velocity(viewport, closeProp, {
+          duration: MOTION_TIME
+        });
+      }
+      for (let i = 0; i < drawerBox.children.length; i++) {
+        drawerBox.children[i].classList.toggle('muse-line');
+      }
+      drawerBox.classList.toggle(sideBarOpen);
+    }
+  }
+
+  // 链接跳转
+  let newWindow = 'false'
+  if (newWindow === 'true') {
+    let links = document.querySelectorAll('.post-body a')
+    links.forEach(item => {
+      if (!item.classList.contains('btn')) {
+        item.setAttribute("target", "_blank");
+      }
+    })
+  }
+
+  let faSearch = document.querySelector('#fa_search');
+  faSearch.addEventListener('click', function () {
+    document.querySelector('#search_mask').style = ''
+  })
+
+  // 代码高亮
+  hljs.initHighlightingOnLoad();
+  
+  // 离开当前页title变化
+  var leaveTitle = "";
+  if (leaveTitle) {
+    document.addEventListener('visibilitychange', function () {
+      if (document.visibilityState == 'hidden') {
+        normal_title = document.title;
+        document.title = leaveTitle;
+      } else {
+        document.title = normal_title;
+      }
+    });
+  }
+
+</script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+<script>
+  let images = document.querySelectorAll('.section img');
+  console.log(images);
+  images.forEach(image => {
+    var parent = image.parentElement;
+    var next = image.nextElementSibling;
+    parent.removeChild(image);
+    var aelem = document.createElement('a');
+    aelem.href = image.src;
+    aelem.dataset['fancybox'] = 'images';
+    aelem.dataset['rel'] = 'fancybox-button';
+    aelem.classList.add('fancybox');
+    aelem.appendChild(image);
+    parent.insertBefore(aelem, next);
+  })
+</script>
+  </div>
+</body>
+
+<div class="search-mask" id="search_mask" style="display: none;">
+  <div class="search-box">
+    <div class="search-title">
+      <i class="fa fa-search"></i>
+      <div class="input-box">
+        <input id="search" type="text" class="language" data-lan="search" placeholder="搜索">
+      </div>
+      <i id="close" class="fa fa-times-circle"></i>
+    </div>
+    <div class="stat-box">
+      <span id="stat_count">0</span><span class="language" data-lan="stat">条相关条目，使用了</span><span id="stat_times">0</span><span class="language" data-lan="stat-time">毫秒</span>
+      <hr>
+    </div>
+    <div class="result" id="result">
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://zduiyl.github.io/post/goland-grpc/"" data-c="
+          &lt;p&gt;protoc 编译工具&lt;br&gt;
+https://www.cnblogs.com/huyuchengus/p/11235491.html&lt;/p&gt;
+&lt;p&gt;gRPC简单实现&lt;br&gt;
+https://www.cnblogs.com/xujunkai/p/13378976.html&lt;/p&gt;
+&lt;p&gt;proto3语言指南&lt;br&gt;
+https://www.jianshu.com/p/f6ff6381a81a&lt;/p&gt;
+&lt;p&gt;protoc -I ./ pb/helloworld.proto --go_out=plugins=grpc:./&lt;/p&gt;
+&lt;p&gt;protoc -I log/ log/pb/helloworld.proto --go_out=plugins=grpc:log&lt;/p&gt;
+">Goland gRPC</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://zduiyl.github.io/post/golang/"" data-c="
+          &lt;p&gt;&lt;a href=&#34;https://www.cnblogs.com/farwish/p/14353529.html&#34;&gt;goland 没有包代码的提示&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Ethan Plan&lt;br&gt;
+Catcher in the Rye&lt;/p&gt;
+&lt;p&gt;[FAQ] Goland 始终没有包代码的提示 ？&lt;/p&gt;
+&lt;p&gt;表现：import 引入的包始终是红色的，表示没有找到引入的包。&lt;/p&gt;
+&lt;p&gt;注意，在这里开启Go Modules：&lt;/p&gt;
+&lt;p&gt;然后在 Exteneral Libraries 里看到 Go Modules 即可。&lt;/p&gt;
+&lt;p&gt;go mod init&lt;br&gt;
+go mod tidy&lt;/p&gt;
+&lt;p&gt;go run&lt;/p&gt;
+">Golang</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://zduiyl.github.io/post/php/"" data-c="
+          &lt;p&gt;&lt;a href=&#34;https://my.oschina.net/gracebear/blog/1512245&#34;&gt;php中有关，session值跨页面丢失的问题&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;我的解决办法：&lt;br&gt;
+php.ini 开启session.save_path = &amp;quot;/tmp&amp;quot;&lt;/p&gt;
+">PHP</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://zduiyl.github.io/post/nginx/"" data-c="
+          &lt;p&gt;&lt;a href=&#34;https://www.cnblogs.com/xuliangwei/p/11568223.html&#34;&gt;Nginx中的break和last&lt;/a&gt;&lt;/p&gt;
+">nginx</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://zduiyl.github.io/post/docker-command/"" data-c="
+          &lt;pre&gt;&lt;code&gt;# docker --help
+
+Management Commands:
+  app*        Docker App (Docker Inc., v0.9.1-beta3)
+  builder     Manage builds
+  buildx*     Build with BuildKit (Docker Inc., v0.5.1-docker)
+  config      Manage Docker configs
+  container   Manage containers
+  context     Manage contexts
+  image       Manage images
+  manifest    Manage Docker image manifests and manifest lists
+  network     Manage networks
+  node        Manage Swarm nodes
+  plugin      Manage plugins
+  secret      Manage Docker secrets
+  service     Manage services
+  stack       Manage Docker stacks
+  swarm       Manage Swarm
+  system      Manage Docker
+  trust       Manage trust on Docker images
+  volume      Manage volumes
+
+Commands:
+  attach      Attach local standard input, output, and error streams to a running container
+  build       Build an image from a Dockerfile
+  commit      Create a new image from a container&#39;s changes
+  cp          Copy files/folders between a container and the local filesystem
+  create      Create a new container
+  diff        Inspect changes to files or directories on a container&#39;s filesystem
+  events      Get real time events from the server
+  exec        Run a command in a running container
+  export      Export a container&#39;s filesystem as a tar archive
+  history     Show the history of an image
+  images      List images
+  import      Import the contents from a tarball to create a filesystem image
+  info        Display system-wide information
+  inspect     Return low-level information on Docker objects
+  kill        Kill one or more running containers
+  load        Load an image from a tar archive or STDIN
+  login       Log in to a Docker registry
+  logout      Log out from a Docker registry
+  logs        Fetch the logs of a container
+  pause       Pause all processes within one or more containers
+  port        List port mappings or a specific mapping for the container
+  ps          List containers
+  pull        Pull an image or a repository from a registry
+  push        Push an image or a repository to a registry
+  rename      Rename a container
+  restart     Restart one or more containers
+  rm          Remove one or more containers
+  rmi         Remove one or more images
+  run         Run a command in a new container
+  save        Save one or more images to a tar archive (streamed to STDOUT by default)
+  search      Search the Docker Hub for images
+  start       Start one or more stopped containers
+  stats       Display a live stream of container(s) resource usage statistics
+  stop        Stop one or more running containers
+  tag         Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE
+  top         Display the running processes of a container
+  unpause     Unpause all processes within one or more containers
+  update      Update configuration of one or more containers
+  version     Show the Docker version information
+  wait        Block until one or more containers stop, then print their exit codes
+&lt;/code&gt;&lt;/pre&gt;
+">docker command</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://zduiyl.github.io/post/clickhouse/"" data-c="
+          &lt;h1 id=&#34;database-engines&#34;&gt;Database Engines&lt;/h1&gt;
+&lt;p&gt;Database engines allow you to work with tables.&lt;/p&gt;
+&lt;p&gt;By default, ClickHouse uses database engine &lt;strong&gt;Atomic&lt;/strong&gt;. It is provides configurable table engines and an SQL dialect.&lt;/p&gt;
+&lt;p&gt;You can also use the following database engines:&lt;/p&gt;
+&lt;p&gt;MySQL&lt;/p&gt;
+&lt;p&gt;MaterializeMySQL&lt;/p&gt;
+&lt;p&gt;Lazy&lt;/p&gt;
+&lt;p&gt;Original article&lt;/p&gt;
+&lt;p&gt;数据库引擎&lt;br&gt;
+您使用的所有表都是由数据库引擎所提供的&lt;/p&gt;
+&lt;p&gt;默认情况下，ClickHouse使用自己的数据库引擎，该引擎提供可配置的表引擎和所有支持的SQL语法.&lt;/p&gt;
+&lt;p&gt;除此之外，您还可以选择使用以下的数据库引擎：&lt;/p&gt;
+&lt;p&gt;MySQL&lt;br&gt;
+来源文章&lt;/p&gt;
+&lt;p&gt;表引擎&lt;br&gt;
+表引擎（即表的类型）决定了：&lt;/p&gt;
+&lt;p&gt;数据的存储方式和位置，写到哪里以及从哪里读取数据&lt;br&gt;
+支持哪些查询以及如何支持。&lt;br&gt;
+并发数据访问。&lt;br&gt;
+索引的使用（如果存在）。&lt;br&gt;
+是否可以执行多线程请求。&lt;br&gt;
+数据复制参数。&lt;br&gt;
+引擎类型&lt;br&gt;
+MergeTree&lt;br&gt;
+适用于高负载任务的最通用和功能最强大的表引擎。这些引擎的共同特点是可以快速插入数据并进行后续的后台数据处理。 MergeTree系列引擎支持数据复制（使用Replicated* 的引擎版本），分区和一些其他引擎不支持的其他功能。&lt;/p&gt;
+&lt;p&gt;该类型的引擎：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;MergeTree&lt;/li&gt;
+&lt;li&gt;ReplacingMergeTree&lt;/li&gt;
+&lt;li&gt;SummingMergeTree&lt;/li&gt;
+&lt;li&gt;AggregatingMergeTree&lt;/li&gt;
+&lt;li&gt;CollapsingMergeTree&lt;/li&gt;
+&lt;li&gt;VersionedCollapsingMergeTree&lt;/li&gt;
+&lt;li&gt;GraphiteMergeTree&lt;/li&gt;
+&lt;/ul&gt;
+">clickhouse</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://zduiyl.github.io/post/microserver-audit-log/"" data-c="
+          &lt;p&gt;client&lt;br&gt;
+用户操作日志：&lt;br&gt;
+某某用户新增了实训，add，{&amp;quot;param1&amp;quot;:&amp;quot;&amp;quot;, &amp;quot;param2&amp;quot;:&amp;quot;&amp;quot;}&lt;br&gt;
+某某用户修改了实训信息，modify，{&amp;quot;param1&amp;quot;: [&amp;quot;a&amp;quot;, &amp;quot;b&amp;quot;]}&lt;/p&gt;
+&lt;p&gt;读，写，修改&lt;/p&gt;
+&lt;p&gt;system&lt;br&gt;
+资源监控日志：&lt;br&gt;
+device，{&amp;quot;cpu&amp;quot;: &amp;quot;50&amp;quot;, &amp;quot;memory&amp;quot;: &amp;quot;&amp;quot;}&lt;br&gt;
+server1，{&amp;quot;cpu&amp;quot;: &amp;quot;50&amp;quot;, &amp;quot;memory&amp;quot;: &amp;quot;&amp;quot;}&lt;br&gt;
+读，写&lt;/p&gt;
+&lt;p&gt;服务运行日志：&lt;br&gt;
+server_name1，error，2021-01-01 app/function/…… 29 logDetail&lt;br&gt;
+server_name2，warn，2021-02-01 app/function/…… 19 logDetail&lt;br&gt;
+server_name4，debug，2021-03-01 app/function/…… 39 logDetail&lt;br&gt;
+读，写&lt;/p&gt;
+&lt;p&gt;database design&lt;/p&gt;
+&lt;p&gt;source，ip，cre_time，username，log_descript，log_type，log_type_sm，log_detail，user_id，microtimestamp，audit_user，audit_timestamp&lt;/p&gt;
+&lt;p&gt;日志定时备份和清理&lt;br&gt;
+监控日志资源占用&lt;br&gt;
+限制日志最长时间范围查询&lt;br&gt;
+限制日志最大存储空间&lt;/p&gt;
+&lt;p&gt;开发语言：golang，通信框架：grpc&lt;/p&gt;
+&lt;p&gt;操作日志方法&lt;/p&gt;
+&lt;p&gt;// 获取用户操作日志&lt;br&gt;
+getOperationLog&lt;/p&gt;
+&lt;p&gt;// 新增用户操作日志&lt;br&gt;
+addOperationLog&lt;/p&gt;
+&lt;p&gt;// 删除用户操作日志&lt;br&gt;
+delOperationLog&lt;/p&gt;
+&lt;p&gt;// 审计用户操作日志&lt;br&gt;
+auditOperationLog&lt;/p&gt;
+&lt;p&gt;系统资源异常日志方法&lt;/p&gt;
+&lt;p&gt;// 获取系统资源异常日志&lt;br&gt;
+getSystemResourceAnomalyLog&lt;/p&gt;
+&lt;p&gt;// 新增系统资源异常日志&lt;br&gt;
+addSystemResourceAnomalyLog&lt;/p&gt;
+&lt;p&gt;// 删除系统资源异常日志&lt;br&gt;
+delSystemResourceAnomalyLog&lt;/p&gt;
+&lt;p&gt;// 审计系统资源异常日志&lt;br&gt;
+auditSystemResourceAnomalyLog&lt;/p&gt;
+&lt;p&gt;可审计人群：审计员，维护人员，运维人员&lt;/p&gt;
+&lt;p&gt;数据库设计&lt;/p&gt;
+">microserver audit log</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://zduiyl.github.io/post/sourcetree-ti-jiao-dao-girrit/"" data-c="
+          &lt;p&gt;&lt;a href=&#34;https://www.jianshu.com/p/2e196c7c6d73?from=groupmessage&#34;&gt;SourceTree 提交代码到gerrit&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;remote: You are not allowed to perform this operation.&lt;br&gt;
+remote: To push into this reference you need &#39;Push&#39; rights.&lt;br&gt;
+remote: User: xuguiyuan&lt;br&gt;
+remote: Please read the documentation and contact an administrator&lt;br&gt;
+remote: if you feel the configuration is incorrect&lt;br&gt;
+remote:&lt;/p&gt;
+&lt;p&gt;remote: Processing changes: refs: 1&lt;br&gt;
+remote: Processing changes: refs: 1, done&lt;br&gt;
+To ssh://192.168.140.253:29418/hy-web-hyweb&lt;br&gt;
+! [remote rejected]   v3.1.0_dev -&amp;gt; v3.1.0_dev (prohibited by Gerrit: ref update access denied)&lt;br&gt;
+error: failed to push some refs to &#39;ssh://xuguiyuan@192.168.140.253:29418/hy-web-hyweb&#39;&lt;/p&gt;
+&lt;p&gt;方法一：&lt;br&gt;
+git config remote.origin.push refs/heads/&lt;em&gt;:refs/for/&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;方法二：提交时指定gerrit的地址&lt;br&gt;
+git push origin HEAD:refs/for/v3.3.1_merge&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.cnblogs.com/xiaodai0/p/10291366.html&#34;&gt;git 查看、切换用户&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;remote: ERROR:  In commit fbd276d3b6a9dadb6bea5314115a3a31b702af65&lt;br&gt;
+remote: ERROR:  committer email address xgy@jxsec.cn&lt;br&gt;
+remote: ERROR:  does not match your user account.&lt;br&gt;
+remote: ERROR:&lt;br&gt;
+remote: ERROR:  The following addresses are currently registered:&lt;br&gt;
+remote: ERROR:    zduiy.xgy@jeeseen.com&lt;br&gt;
+remote: ERROR:&lt;br&gt;
+remote: ERROR:  To register an email address, please visit:&lt;br&gt;
+remote: ERROR:  http://192.168.140.253/#/settings/contact&lt;/p&gt;
+&lt;p&gt;查看用户名：&lt;/p&gt;
+&lt;p&gt;git config user.name&lt;br&gt;
+查看用户邮箱：&lt;/p&gt;
+&lt;p&gt;git config user.email&lt;br&gt;
+修改命令：&lt;/p&gt;
+&lt;p&gt;修改用户名：&lt;/p&gt;
+&lt;p&gt;git config --global user.name &amp;quot;Your_username&amp;quot;&lt;br&gt;
+修改用户邮箱：&lt;/p&gt;
+&lt;p&gt;git config --global user.email &amp;quot;Your_email&amp;quot;&lt;br&gt;
+注：user.name或者user.email后需有一个空格，再写你的用户名或者用户邮箱&lt;/p&gt;
+&lt;p&gt;git push origin v3.1.0_dev&lt;br&gt;
+Enumerating objects: 7, done.&lt;br&gt;
+Counting objects: 100% (7/7), done.&lt;br&gt;
+Delta compression using up to 8 threads&lt;br&gt;
+Compressing objects: 100% (4/4), done.&lt;br&gt;
+Writing objects: 100% (4/4), 542 bytes | 542.00 KiB/s, done.&lt;br&gt;
+Total 4 (delta 2), reused 0 (delta 0)&lt;br&gt;
+remote: Resolving deltas: 100% (2/2)&lt;br&gt;
+remote: Processing changes: refs: 1, done&lt;br&gt;
+remote: ERROR: [83d647e] missing Change-Id in commit message footer&lt;br&gt;
+remote:&lt;br&gt;
+remote: Hint: To automatically insert Change-Id, install the hook:&lt;br&gt;
+remote:   gitdir=$(git rev-parse --git-dir); scp -p -P 29418 xuguiyuan@192.168.140.253:hooks/commit-msg ${gitdir}/hooks/&lt;br&gt;
+remote: And then amend the commit:&lt;br&gt;
+remote:   git commit --amend&lt;br&gt;
+remote:&lt;br&gt;
+To ssh://192.168.140.253:29418/hy-web-hyweb&lt;br&gt;
+! [remote rejected]   v3.1.0_dev -&amp;gt; refs/for/v3.1.0_dev ([83d647e] missing Change-Id in commit message footer)&lt;br&gt;
+error: failed to push some refs to &#39;ssh://xuguiyuan@192.168.140.253:29418/hy-web-hyweb&#39;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/sinat_41170942/article/details/80136064&#34;&gt;提交gerrit缺失changeId&lt;/a&gt;&lt;br&gt;
+scp -p -P 29418 xuguiyuan@192.168.140.253:hooks/commit-msg .git/hooks/&lt;/p&gt;
+">sourcetree提交到gerrit</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://zduiyl.github.io/post/sad/"" data-c="
+          &lt;p&gt;&lt;a href=&#34;https://www.cnblogs.com/heluan/p/8620312.html&#34;&gt;HTTP1.0、HTTP1.1 和 HTTP2.0 的区别&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;名词&lt;br&gt;
+带宽：拨号上网可能会使带宽成为影响请求的问题&lt;br&gt;
+延迟：&lt;/p&gt;
+&lt;p&gt;浏览器阻塞（HOL blocking）：浏览器会因为一些原因阻塞请求。浏览器对于同一个域名，同时只能有 4 个连接（这个根据浏览器内核不同可能会有所差异），超过浏览器最大连接数限制，后续请求就会被阻塞。&lt;br&gt;
+DNS查询（DNS Lookup）：浏览器需要知道目标服务器的 IP 才能建立连接。将域名解析为 IP 的这个系统就是 DNS。这个通常可以利用DNS缓存结果来达到减少这个时间的目的。&lt;br&gt;
+建立连接（Initial connection）：HTTP 是基于 TCP 协议的，浏览器最快也要在第三次握手时才能捎带 HTTP 请求报文，达到真正的建立连接，但是这些连接无法复用会导致每次请求都经历三次握手和慢启动。三次握手在高延迟的场景下影响较明显，慢启动则对文件类大请求影响较大。&lt;br&gt;
+SPDY采用的是DEFLATE算法压缩Header头&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;HTTP2.0的多路复用和HTTP1.X中的长连接复用有什么区别？&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;HTTP/1.* 一次请求-响应，建立一个连接，用完关闭；每一个请求都要建立一个连接；&lt;/li&gt;
+&lt;li&gt;HTTP/1.1 Pipeling解决方式为，若干个请求排队串行化单线程处理，后面的请求等待前面请求的返回才能获得执行机会，一旦有某请求超时等，后续请求只能被阻塞，毫无办法，也就是人们常说的线头阻塞；&lt;/li&gt;
+&lt;li&gt;HTTP/2多个请求可同时在一个连接上并行执行。某个请求任务耗时严重，不会影响到其它连接的正常执行；&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.jianshu.com/p/c77059d093da&#34;&gt;先进而不能用HTTP2.0&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;HTTP2使用HPACK算法压缩Header头&lt;/p&gt;
+&lt;p&gt;服务器端nginx里新增的http2是分开配置的&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.jianshu.com/p/870dcf165ad1&#34;&gt;HTTP无状态和connection:keep-alive的个人理解&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;keep-alive：从HTTP/1.1起，浏览器默认都开启了Keep-Alive，保持连接特性，客户端和服务器都能选择随时关闭连接，则请求头中为connection:close。简单地说，当一个网页打开完成后，客户端和服务器之间用于传输HTTP数据的TCP连接不会关闭，如果客户端再次访问这个服务器上的网页，会继续使用这一条已经建立的TCP连接。但是Keep-Alive不会永久保持连接，它有一个保持时间，可以在不同的服务器软件（如Apache）中设定这个时间。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/happyq/article/details/8688353&#34;&gt;HTTP Range头域&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;HTTP头中一般断点下载时才用到Range和Content-Range实体头&lt;/p&gt;
+&lt;p&gt;[&lt;a href=&#34;https://my.oschina.net/u/876354/blog/914320&#34;&gt;Failed to get D-Bus connection: Operation not permitted ， docker安装centos7之坑&lt;/a&gt;](https://my.oschina.net/u/876354/blog/914320)&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.php.net/releases/8.0/en.php&#34;&gt;PHP8相对PHP7的变更&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;1）在DockerFile构建镜像时，无法使用systemctl，sysctl等命令，无法使用ifconfig eth0修改网卡ip。&lt;/p&gt;
+&lt;p&gt;2）命令行启动elasticsearch的方法&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;/usr/share/elasticsearch/bin/elasticsearch \
+  -p /var/run/elasticsearch/elasticsearch.pid \
+# --quiet \
+  -Edefault.path.logs=/var/log/elasticsearch \
+  -Edefault.path.data=/var/lib/elasticsearch \
+  -Edefault.path.conf=/etc/elasticsearch \
+  -d \
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;不指定配置文件路径的话，默认路径是：/usr/share/elasticsearch/&lt;/p&gt;
+&lt;p&gt;3）使用systemd管理elasticsearch的--quiet参数的意义&lt;/p&gt;
+&lt;p&gt;Elasticsearch服务不会在&lt;code&gt;systemd&lt;/code&gt; journal中记录信息，要启用&lt;code&gt;journalctl&lt;/code&gt;日志记录，&lt;code&gt;--quiet&lt;/code&gt;选项必须从&lt;code&gt;elasticsearch.service&lt;/code&gt;文件中的&lt;code&gt;ExecStart&lt;/code&gt;命令行中删除。&lt;/p&gt;
+&lt;p&gt;4）不可用root用户以命令行方式启动elasticsearch&lt;/p&gt;
+&lt;p&gt;5）DockerFile中命令行启动elasticsearch时需要先切换用户&lt;/p&gt;
+&lt;p&gt;USER root #切换为root用户&lt;/p&gt;
+&lt;p&gt;USER elasticsearch #切换为elasticsearch用户&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/gxf212/article/details/89676307&#34;&gt;Docker 清理none镜像 Prune命令&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;docker build时产生很多名为none的镜像，这些镜像是虚悬镜像，为了方便下次构建时快速使用缓存&lt;/p&gt;
+&lt;p&gt;--no-cache&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/weixin_44297303/article/details/102956879&#34;&gt;syntax error: unexpected end of file完美解决方案&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sed -i &amp;quot;s/\r//&amp;quot; &amp;lt;filepath&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;dockerfile的entrypoint所执行的脚本无法执行systemctl等命令，docker start时有可能和构建镜像时的权限一样&lt;/p&gt;
+&lt;p&gt;Failed to get D-Bus connection: Operation not permitted&lt;/p&gt;
+&lt;p&gt;dockerfile的entrypoint所执行的脚本内容需要有持续监听命令，否则脚本运行完容器就会停掉。&lt;/p&gt;
+&lt;p&gt;docker容器启动时没有执行rc.local，检查/etc/rc.d/rc.local是否有执行权限。&lt;/p&gt;
+&lt;p&gt;没有则chmod +x /etc/rc.d/rc.local&lt;/p&gt;
+&lt;p&gt;iptables -nL -t nat&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.cnblogs.com/diandianquanquan/p/11966426.html&#34;&gt;查看ElasticSearch服务状态和结果的URL&lt;/a&gt;&lt;br&gt;
+/cat/_nodes?v&lt;br&gt;
+?v表示是否显示标题&lt;br&gt;
+/cat/health?v&lt;/p&gt;
+&lt;p&gt;docker tag &amp;lt;image_id&amp;gt;&lt;/p&gt;
+&lt;p&gt;[git 列出两个 commit 之间变更的文件列表]https://www.cnblogs.com/eleven24/p/8668138.html&lt;/p&gt;
+&lt;p&gt;[git比较两个分支的文件的差异]https://blog.csdn.net/yzpbright/article/details/54143129&lt;/p&gt;
+&lt;p&gt;Git diff branch1 branch2 --stat   //显示出所有有差异的文件列表&lt;br&gt;
+Git diff branch1 branch2 文件名(带路径)   //显示指定文件的详细差异&lt;br&gt;
+Git diff branch1 branch2                   //显示出所有有差异的文件的详细差异&lt;/p&gt;
+&lt;p&gt;查看分支信息&lt;br&gt;
+git branch 查看本地分支&lt;br&gt;
+git branch -a 查看所有分支&lt;br&gt;
+git branch -r 查看所有远端分支&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/X_And_Y/article/details/108568500&#34;&gt;linux将文本文件按照行倒序输出&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/sunkun2013/article/details/73277086&#34;&gt;Linux：使用awk命令获取文本的某一行，某一列&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;linux判断文件是否存在&lt;br&gt;
+https://www.cnblogs.com/xiongyunqi/p/3735773.html&lt;/p&gt;
+&lt;p&gt;docker中elasticsearch如果使用volumn挂载了/var/lib/elasticsearch，/var/log/elasticsearch/，要修改这两个目录的用户和用户组chown -R /var/lib/elasticsearch /var/log/elasticsearc，不然elasticsearch不会生成日志，且启动会报错&lt;/p&gt;
+&lt;p&gt;chown可以指定多个目录&lt;br&gt;
+chown -R root:root /var/lib/ /var/log&lt;/p&gt;
+&lt;p&gt;修改最后一次提交的信息，仅能修改最后一次的msg&lt;br&gt;
+&lt;a href=&#34;https://www.cnblogs.com/fe-linjin/p/&#34;&gt;git高级浅入之当我们需要修改某次commit信息&lt;/a&gt;10814935.html&lt;br&gt;
+git commit --amend&lt;/p&gt;
+&lt;p&gt;clickhouse&lt;br&gt;
+https://blog.csdn.net/chengyuqiang/article/details/108534587&lt;br&gt;
+默认密码是空&lt;br&gt;
+端口 8123&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/xinluke/article/details/52229431&#34;&gt;Linux 使用 cp 命令强制覆盖功能&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;mysqldump -uroot -h主机地址 -P端口 -p &amp;gt;/root/backup.sql&lt;/p&gt;
+&lt;p&gt;history -c 清空当前终端历史记录&lt;br&gt;
+/root/.bash_history 所有历史记录&lt;/p&gt;
+">每日记录</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://zduiyl.github.io/post/about/"" data-c="
+          &lt;blockquote&gt;
+&lt;p&gt;欢迎来到我的小站呀，很高兴遇见你！🤝&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;关于本站&#34;&gt;🏠 关于本站&lt;/h2&gt;
+&lt;h2 id=&#34;博主是谁&#34;&gt;👨‍💻 博主是谁&lt;/h2&gt;
+&lt;h2 id=&#34;兴趣爱好&#34;&gt;⛹ 兴趣爱好&lt;/h2&gt;
+&lt;h2 id=&#34;联系我呀&#34;&gt;📬 联系我呀&lt;/h2&gt;
+">关于</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://zduiyl.github.io/post/hello-gridea/"" data-c="
+          &lt;p&gt;👏  欢迎使用 &lt;strong&gt;Gridea&lt;/strong&gt; ！&lt;br&gt;
+✍️  &lt;strong&gt;Gridea&lt;/strong&gt; 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/getgridea/gridea&#34;&gt;Github&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;https://gridea.dev/&#34;&gt;Gridea 主页&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;http://fehey.com/&#34;&gt;示例网站&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;特性&#34;&gt;特性👇&lt;/h2&gt;
+&lt;p&gt;📝  你可以使用最酷的 &lt;strong&gt;Markdown&lt;/strong&gt; 语法，进行快速创作&lt;/p&gt;
+&lt;p&gt;🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片&lt;/p&gt;
+&lt;p&gt;🏷️  你可以对文章进行标签分组&lt;/p&gt;
+&lt;p&gt;📋  你可以自定义菜单，甚至可以创建外部链接菜单&lt;/p&gt;
+&lt;p&gt;💻  你可以在 &lt;strong&gt;Windows&lt;/strong&gt;，&lt;strong&gt;MacOS&lt;/strong&gt; 或 &lt;strong&gt;Linux&lt;/strong&gt; 设备上使用此客户端&lt;/p&gt;
+&lt;p&gt;🌎  你可以使用 &lt;strong&gt;𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌&lt;/strong&gt; 或 &lt;strong&gt;Coding Pages&lt;/strong&gt; 向世界展示，未来将支持更多平台&lt;/p&gt;
+&lt;p&gt;💬  你可以进行简单的配置，接入 &lt;a href=&#34;https://github.com/gitalk/gitalk&#34;&gt;Gitalk&lt;/a&gt; 或 &lt;a href=&#34;https://github.com/SukkaW/DisqusJS&#34;&gt;DisqusJS&lt;/a&gt; 评论系统&lt;/p&gt;
+&lt;p&gt;🇬🇧  你可以使用&lt;strong&gt;中文简体&lt;/strong&gt;或&lt;strong&gt;英语&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;🌁  你可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力&lt;/p&gt;
+&lt;p&gt;🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步&lt;/p&gt;
+&lt;p&gt;🌱 当然 &lt;strong&gt;Gridea&lt;/strong&gt; 还很年轻，有很多不足，但请相信，它会不停向前 🏃&lt;/p&gt;
+&lt;p&gt;未来，它一定会成为你离不开的伙伴&lt;/p&gt;
+&lt;p&gt;尽情发挥你的才华吧！&lt;/p&gt;
+&lt;p&gt;😘 Enjoy~&lt;/p&gt;
+">Hello Gridea</a>
+      </div>
+      
+    </div>
+    <div class="page">
+      <div id="page_ul"></div>
+    </div>
+  </div>
+</div>
+<script>
+  !function () {
+    let searchMask = document.querySelector('#search_mask');
+    let result = document.querySelector('#result');
+    let items = document.querySelectorAll('.item');
+    let searchBox = document.querySelector('#search');
+    let statCount = document.querySelector('#stat_count');
+    let statTimes = document.querySelector('#stat_times');
+    let pageUl = document.querySelector('#page_ul');
+    let close = document.querySelector('#close');
+    
+    close.addEventListener('click', function() {
+      searchMask.style = 'display: none;'
+    })
+
+    let finds = [];
+    let contents = [];
+    let pageSize = 10;
+    items.forEach(item => {
+      let a = item.querySelector('a');
+      contents.push({
+        title: a.innerText,
+        details: a.dataset.c,
+        link: a.href
+      })
+      item.remove();
+    })
+
+    function insertStr(soure, start, count) {
+      let newStr = soure.substr(start, count);
+      return soure.slice(0, start) + '<em>' + newStr + '</em>' + soure.slice(start + count);
+    }
+
+    pageUl.addEventListener('click', function(event) {
+      let target = event.target;
+      if (target.__proto__ === HTMLSpanElement.prototype) {
+        appendResults(parseInt(target.dataset.i));
+      }
+    })
+
+    function appendResults(index) {
+      let htmlResult = '';
+      let start = index || 0;
+      let end = Math.min(start + pageSize, finds.length);
+      for (let i = start; i < end; i++) {
+        const current = finds[i];
+        let html = current.title;
+        let sum = 0;
+        let positions = current.positions;
+        positions.forEach(position => {
+          html = insertStr(html, position.start + sum, position.count);
+          sum += 9;
+        })
+        htmlResult += `<div class="item"><a class="result-title" href="${current.link}">${html}</a></div>`;
+      }
+      result.innerHTML = htmlResult;
+      pageUl.innerHTML = '';
+      let count = finds.length / pageSize;
+      let lis = '';
+      if (start !== 0) {
+        lis += `<span class="fa fa-angle-left" data-i='${start - 1}'></span>`;
+      }
+      for (let i = 0; i < count; i++) {
+        lis += `<span class='${i === start?'current':''}' data-i='${i}'>${i+1}</span>`;     
+      }
+      if (start+1 < count) {
+        lis += `<span class="fa fa-angle-right" data-i='${start+1}'></span>`;  
+      }
+      pageUl.innerHTML = lis;
+    }
+
+    function search(delay) {
+      let timer = null
+      return function () {
+        clearTimeout(timer)
+        timer = setTimeout(() => {
+          let start = Date.now();
+          let segments = searchBox.value.split(' ').filter(c => c != '');
+          if (segments.length <= 0) {
+            return;
+          }
+          finds = [];
+          let htmlResult = '';
+          contents.forEach(content => {
+            let title = content.title;
+            let positions = [];
+            let find = false;
+            segments.forEach((segment) => {
+              if (content.title.includes(segment)) {
+                find = true;
+                positions.push({
+                  start: content.title.indexOf(segment),
+                  count: segment.length
+                })
+              } else if (content.details.includes(segment)) {
+                find = true;
+              }
+            });
+            if (find) {
+              finds.push({
+                title: content.title,
+                link: content.link,
+                positions
+              });
+            }
+          })
+          appendResults(0);
+          statCount.textContent = finds.length;
+          statTimes.textContent = Date.now() - start;
+        }, delay)
+      }
+    }
+    searchBox.addEventListener('input', search(200));
+  }()
+</script>
+
+<input hidden id="copy" />
+<script>
+  !function () {
+    let times = document.querySelectorAll('.publish-time');
+    for (let i = 0; i < times.length; i++) {
+      let date = times[i].dataset.t;
+      let time = Math.floor((new Date().getTime() - new Date(date).getTime()) / 1000);
+      if (time < 60) {
+        str = time + '秒之前';
+      } else if (time < 3600) {
+        str = Math.floor(time / 60) + '分钟之前';
+      } else if (time >= 3600 && time < 86400) {
+        str = Math.floor(time / 3600) + '小时之前';
+      } else if (time >= 86400 && time < 259200) {
+        str = Math.floor(time / 86400) + '天之前';
+      } else {
+        str = times[i].textContent;
+      }
+      times[i].textContent = str;
+    }
+  }();
+</script>
+
+<script>
+  let language = '';
+  if (language !== '') {
+    let map = new Map();
+    if (language === 'en') {
+      map.set('search', 'Search');
+      map.set('category', 'Categories');
+      map.set('article', 'Articles');
+      map.set('tag', 'Tags');
+      map.set('top', 'Top');
+      map.set('publish', 'published');
+      map.set('minute', ' minutes');
+      map.set('read-more', 'Read More');
+      map.set('view', 'View');
+      map.set('words', ' words');
+      map.set('category-in', 'category in');
+      map.set('preview', 'Meta');
+      map.set('index', 'Toc');
+      map.set('no-archives', "You haven't created yet");
+      map.set('archives', " articles in total");
+      map.set('cloud-tags', " tags in total");
+      map.set('copyright', "Copyright: ");
+      map.set('author', "Author: ");
+      map.set('link', "Link: ");
+      map.set('leave-message', "Leave a message");
+      map.set('format', "Links Format");
+      map.set('site-name', "Name: ");
+      map.set('site-link', "Link: ");
+      map.set('site-desc', "Desc: ");
+      map.set('stat', " related results, taking ");
+      map.set('stat-time', " ms");
+      map.set('site-img', "Image: ");
+    }
+
+    if (map.size > 0) {
+      let lanElems = document.querySelectorAll('.language');
+      lanElems.forEach(elem => {
+        let lan = elem.dataset.lan, text = map.get(lan);
+        if (elem.__proto__ === HTMLInputElement.prototype) {
+          elem.placeholder = text
+        } else {
+          if (elem.dataset.count) {
+            text = elem.dataset.count + text;
+          }
+          elem.textContent = text;
+        }
+      })
+    }
+  }
+  //拿来主义(真香)^_^，Clipboard 实现摘自掘金 https://juejin.im/post/5aefeb6e6fb9a07aa43c20af
+  window.Clipboard = (function (window, document, navigator) {
+    var textArea,
+      copy;
+
+    // 判断是不是ios端
+    function isOS() {
+      return navigator.userAgent.match(/ipad|iphone/i);
+    }
+    //创建文本元素
+    function createTextArea(text) {
+      textArea = document.createElement('textArea');
+      textArea.value = text;
+      textArea.style.width = 0;
+      textArea.style.height = 0;
+      textArea.clientHeight = 0;
+      textArea.clientWidth = 0;
+      document.body.appendChild(textArea);
+    }
+    //选择内容
+    function selectText() {
+      var range,
+        selection;
+
+      if (isOS()) {
+        range = document.createRange();
+        range.selectNodeContents(textArea);
+        selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+        textArea.setSelectionRange(0, 999999);
+      } else {
+        textArea.select();
+      }
+    }
+
+    //复制到剪贴板
+    function copyToClipboard() {
+      try {
+        document.execCommand("Copy")
+      } catch (err) {
+        alert("复制错误！请手动复制！")
+      }
+      document.body.removeChild(textArea);
+    }
+
+    copy = function (text) {
+      createTextArea(text);
+      selectText();
+      copyToClipboard();
+    };
+
+    return {
+      copy: copy
+    };
+  })(window, document, navigator);
+
+  function copyCode(e) {
+    if (e.srcElement.tagName === 'SPAN' && e.srcElement.classList.contains('copy-code')) {
+      let code = e.currentTarget.querySelector('code');
+      var text = code.innerText;
+      if (e.srcElement.textContent === '复制成功') {
+        return;
+      }
+      e.srcElement.textContent = '复制成功';
+      (function (elem) {
+        setTimeout(() => {
+          if (elem.textContent === '复制成功') {
+            elem.textContent = '复制代码'
+          }
+        }, 1000);
+      })(e.srcElement)
+      Clipboard.copy(text);
+    }
+  }
+
+  let pres = document.querySelectorAll('pre');
+  pres.forEach(pre => {
+    let code = pre.querySelector('code');
+    let copyElem = document.createElement('span');
+    copyElem.classList.add('copy-code');
+    copyElem.textContent = '复制代码';
+    pre.appendChild(copyElem);
+    pre.onclick = copyCode
+  })
+
+</script>
+<script src="/media/js/motion.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+<script>
+  var scroll = new SmoothScroll('a[href*="#"]', {
+    speed: 200
+  });
 </script>
 
 
@@ -141,5 +1184,4 @@ var app = new Vue({
 
 
 
-  </body>
 </html>

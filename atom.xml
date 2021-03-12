@@ -1,15 +1,183 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zduiyl.github.io/</id>
-    <title>Gridea</title>
-    <updated>2021-03-02T09:59:43.653Z</updated>
+    <title>Zduiy Blog</title>
+    <updated>2021-03-12T08:36:26.488Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zduiyl.github.io/"/>
     <link rel="self" href="https://zduiyl.github.io/atom.xml"/>
-    <subtitle>温故而知新</subtitle>
     <logo>https://zduiyl.github.io/images/avatar.png</logo>
     <icon>https://zduiyl.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2021, Gridea</rights>
+    <rights>All rights reserved 2021, Zduiy Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[Goland gRPC]]></title>
+        <id>https://zduiyl.github.io/post/goland-grpc/</id>
+        <link href="https://zduiyl.github.io/post/goland-grpc/">
+        </link>
+        <updated>2021-03-12T07:43:48.000Z</updated>
+        <content type="html"><![CDATA[<p>protoc 编译工具<br>
+https://www.cnblogs.com/huyuchengus/p/11235491.html</p>
+<p>gRPC简单实现<br>
+https://www.cnblogs.com/xujunkai/p/13378976.html</p>
+<p>proto3语言指南<br>
+https://www.jianshu.com/p/f6ff6381a81a</p>
+<p>protoc -I ./ pb/helloworld.proto --go_out=plugins=grpc:./</p>
+<p>protoc -I log/ log/pb/helloworld.proto --go_out=plugins=grpc:log</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Golang]]></title>
+        <id>https://zduiyl.github.io/post/golang/</id>
+        <link href="https://zduiyl.github.io/post/golang/">
+        </link>
+        <updated>2021-03-12T07:24:54.000Z</updated>
+        <content type="html"><![CDATA[<p><a href="https://www.cnblogs.com/farwish/p/14353529.html">goland 没有包代码的提示</a></p>
+<p>Ethan Plan<br>
+Catcher in the Rye</p>
+<p>[FAQ] Goland 始终没有包代码的提示 ？</p>
+<p>表现：import 引入的包始终是红色的，表示没有找到引入的包。</p>
+<p>注意，在这里开启Go Modules：</p>
+<p>然后在 Exteneral Libraries 里看到 Go Modules 即可。</p>
+<p>go mod init<br>
+go mod tidy</p>
+<p>go run</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[PHP]]></title>
+        <id>https://zduiyl.github.io/post/php/</id>
+        <link href="https://zduiyl.github.io/post/php/">
+        </link>
+        <updated>2021-03-09T03:45:34.000Z</updated>
+        <content type="html"><![CDATA[<p><a href="https://my.oschina.net/gracebear/blog/1512245">php中有关，session值跨页面丢失的问题</a></p>
+<p>我的解决办法：<br>
+php.ini 开启session.save_path = &quot;/tmp&quot;</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[nginx]]></title>
+        <id>https://zduiyl.github.io/post/nginx/</id>
+        <link href="https://zduiyl.github.io/post/nginx/">
+        </link>
+        <updated>2021-03-09T03:44:40.000Z</updated>
+        <content type="html"><![CDATA[<p><a href="https://www.cnblogs.com/xuliangwei/p/11568223.html">Nginx中的break和last</a></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[docker command]]></title>
+        <id>https://zduiyl.github.io/post/docker-command/</id>
+        <link href="https://zduiyl.github.io/post/docker-command/">
+        </link>
+        <updated>2021-03-09T01:51:43.000Z</updated>
+        <content type="html"><![CDATA[<pre><code># docker --help
+
+Management Commands:
+  app*        Docker App (Docker Inc., v0.9.1-beta3)
+  builder     Manage builds
+  buildx*     Build with BuildKit (Docker Inc., v0.5.1-docker)
+  config      Manage Docker configs
+  container   Manage containers
+  context     Manage contexts
+  image       Manage images
+  manifest    Manage Docker image manifests and manifest lists
+  network     Manage networks
+  node        Manage Swarm nodes
+  plugin      Manage plugins
+  secret      Manage Docker secrets
+  service     Manage services
+  stack       Manage Docker stacks
+  swarm       Manage Swarm
+  system      Manage Docker
+  trust       Manage trust on Docker images
+  volume      Manage volumes
+
+Commands:
+  attach      Attach local standard input, output, and error streams to a running container
+  build       Build an image from a Dockerfile
+  commit      Create a new image from a container's changes
+  cp          Copy files/folders between a container and the local filesystem
+  create      Create a new container
+  diff        Inspect changes to files or directories on a container's filesystem
+  events      Get real time events from the server
+  exec        Run a command in a running container
+  export      Export a container's filesystem as a tar archive
+  history     Show the history of an image
+  images      List images
+  import      Import the contents from a tarball to create a filesystem image
+  info        Display system-wide information
+  inspect     Return low-level information on Docker objects
+  kill        Kill one or more running containers
+  load        Load an image from a tar archive or STDIN
+  login       Log in to a Docker registry
+  logout      Log out from a Docker registry
+  logs        Fetch the logs of a container
+  pause       Pause all processes within one or more containers
+  port        List port mappings or a specific mapping for the container
+  ps          List containers
+  pull        Pull an image or a repository from a registry
+  push        Push an image or a repository to a registry
+  rename      Rename a container
+  restart     Restart one or more containers
+  rm          Remove one or more containers
+  rmi         Remove one or more images
+  run         Run a command in a new container
+  save        Save one or more images to a tar archive (streamed to STDOUT by default)
+  search      Search the Docker Hub for images
+  start       Start one or more stopped containers
+  stats       Display a live stream of container(s) resource usage statistics
+  stop        Stop one or more running containers
+  tag         Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE
+  top         Display the running processes of a container
+  unpause     Unpause all processes within one or more containers
+  update      Update configuration of one or more containers
+  version     Show the Docker version information
+  wait        Block until one or more containers stop, then print their exit codes
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[clickhouse]]></title>
+        <id>https://zduiyl.github.io/post/clickhouse/</id>
+        <link href="https://zduiyl.github.io/post/clickhouse/">
+        </link>
+        <updated>2021-03-02T10:04:24.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="database-engines">Database Engines</h1>
+<p>Database engines allow you to work with tables.</p>
+<p>By default, ClickHouse uses database engine <strong>Atomic</strong>. It is provides configurable table engines and an SQL dialect.</p>
+<p>You can also use the following database engines:</p>
+<p>MySQL</p>
+<p>MaterializeMySQL</p>
+<p>Lazy</p>
+<p>Original article</p>
+<p>数据库引擎<br>
+您使用的所有表都是由数据库引擎所提供的</p>
+<p>默认情况下，ClickHouse使用自己的数据库引擎，该引擎提供可配置的表引擎和所有支持的SQL语法.</p>
+<p>除此之外，您还可以选择使用以下的数据库引擎：</p>
+<p>MySQL<br>
+来源文章</p>
+<p>表引擎<br>
+表引擎（即表的类型）决定了：</p>
+<p>数据的存储方式和位置，写到哪里以及从哪里读取数据<br>
+支持哪些查询以及如何支持。<br>
+并发数据访问。<br>
+索引的使用（如果存在）。<br>
+是否可以执行多线程请求。<br>
+数据复制参数。<br>
+引擎类型<br>
+MergeTree<br>
+适用于高负载任务的最通用和功能最强大的表引擎。这些引擎的共同特点是可以快速插入数据并进行后续的后台数据处理。 MergeTree系列引擎支持数据复制（使用Replicated* 的引擎版本），分区和一些其他引擎不支持的其他功能。</p>
+<p>该类型的引擎：</p>
+<ul>
+<li>MergeTree</li>
+<li>ReplacingMergeTree</li>
+<li>SummingMergeTree</li>
+<li>AggregatingMergeTree</li>
+<li>CollapsingMergeTree</li>
+<li>VersionedCollapsingMergeTree</li>
+<li>GraphiteMergeTree</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[microserver audit log]]></title>
         <id>https://zduiyl.github.io/post/microserver-audit-log/</id>
@@ -20,21 +188,48 @@
 用户操作日志：<br>
 某某用户新增了实训，add，{&quot;param1&quot;:&quot;&quot;, &quot;param2&quot;:&quot;&quot;}<br>
 某某用户修改了实训信息，modify，{&quot;param1&quot;: [&quot;a&quot;, &quot;b&quot;]}</p>
+<p>读，写，修改</p>
 <p>system<br>
 资源监控日志：<br>
 device，{&quot;cpu&quot;: &quot;50&quot;, &quot;memory&quot;: &quot;&quot;}<br>
-server1，{&quot;cpu&quot;: &quot;50&quot;, &quot;memory&quot;: &quot;&quot;}</p>
+server1，{&quot;cpu&quot;: &quot;50&quot;, &quot;memory&quot;: &quot;&quot;}<br>
+读，写</p>
 <p>服务运行日志：<br>
 server_name1，error，2021-01-01 app/function/…… 29 logDetail<br>
 server_name2，warn，2021-02-01 app/function/…… 19 logDetail<br>
-server_name4，debug，2021-03-01 app/function/…… 39 logDetail</p>
+server_name4，debug，2021-03-01 app/function/…… 39 logDetail<br>
+读，写</p>
 <p>database design</p>
-<p>source，ip，cre_time，username，log_descript，log_type，log_type_sm，log_detail，user_id，microtimestamp</p>
-<p>日志定时清理，日志存储时长，日志最大存储空间</p>
+<p>source，ip，cre_time，username，log_descript，log_type，log_type_sm，log_detail，user_id，microtimestamp，audit_user，audit_timestamp</p>
+<p>日志定时备份和清理<br>
+监控日志资源占用<br>
+限制日志最长时间范围查询<br>
+限制日志最大存储空间</p>
+<p>开发语言：golang，通信框架：grpc</p>
+<p>操作日志方法</p>
+<p>// 获取用户操作日志<br>
+getOperationLog</p>
+<p>// 新增用户操作日志<br>
+addOperationLog</p>
+<p>// 删除用户操作日志<br>
+delOperationLog</p>
+<p>// 审计用户操作日志<br>
+auditOperationLog</p>
+<p>系统资源异常日志方法</p>
+<p>// 获取系统资源异常日志<br>
+getSystemResourceAnomalyLog</p>
+<p>// 新增系统资源异常日志<br>
+addSystemResourceAnomalyLog</p>
+<p>// 删除系统资源异常日志<br>
+delSystemResourceAnomalyLog</p>
+<p>// 审计系统资源异常日志<br>
+auditSystemResourceAnomalyLog</p>
+<p>可审计人群：审计员，维护人员，运维人员</p>
+<p>数据库设计</p>
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[sourcetree提交到girrit]]></title>
+        <title type="html"><![CDATA[sourcetree提交到gerrit]]></title>
         <id>https://zduiyl.github.io/post/sourcetree-ti-jiao-dao-girrit/</id>
         <link href="https://zduiyl.github.io/post/sourcetree-ti-jiao-dao-girrit/">
         </link>
@@ -51,7 +246,10 @@ remote: Processing changes: refs: 1, done<br>
 To ssh://192.168.140.253:29418/hy-web-hyweb<br>
 ! [remote rejected]   v3.1.0_dev -&gt; v3.1.0_dev (prohibited by Gerrit: ref update access denied)<br>
 error: failed to push some refs to 'ssh://xuguiyuan@192.168.140.253:29418/hy-web-hyweb'</p>
-<p>git config remote.origin.push refs/heads/<em>:refs/for/</em></p>
+<p>方法一：<br>
+git config remote.origin.push refs/heads/<em>:refs/for/</em></p>
+<p>方法二：提交时指定gerrit的地址<br>
+git push origin HEAD:refs/for/v3.3.1_merge</p>
 <p><a href="https://www.cnblogs.com/xiaodai0/p/10291366.html">git 查看、切换用户</a></p>
 <p>remote: ERROR:  In commit fbd276d3b6a9dadb6bea5314115a3a31b702af65<br>
 remote: ERROR:  committer email address xgy@jxsec.cn<br>
@@ -93,7 +291,6 @@ To ssh://192.168.140.253:29418/hy-web-hyweb<br>
 error: failed to push some refs to 'ssh://xuguiyuan@192.168.140.253:29418/hy-web-hyweb'</p>
 <p><a href="https://blog.csdn.net/sinat_41170942/article/details/80136064">提交gerrit缺失changeId</a><br>
 scp -p -P 29418 xuguiyuan@192.168.140.253:hooks/commit-msg .git/hooks/</p>
-<p><a href="https://blog.csdn.net/xinluke/article/details/52229431">Linux 使用 cp 命令强制覆盖功能</a></p>
 ]]></content>
     </entry>
     <entry>
@@ -102,7 +299,58 @@ scp -p -P 29418 xuguiyuan@192.168.140.253:hooks/commit-msg .git/hooks/</p>
         <link href="https://zduiyl.github.io/post/sad/">
         </link>
         <updated>2021-02-23T07:32:43.000Z</updated>
-        <content type="html"><![CDATA[<p>seq -i</p>
+        <content type="html"><![CDATA[<p><a href="https://www.cnblogs.com/heluan/p/8620312.html">HTTP1.0、HTTP1.1 和 HTTP2.0 的区别</a></p>
+<p>名词<br>
+带宽：拨号上网可能会使带宽成为影响请求的问题<br>
+延迟：</p>
+<p>浏览器阻塞（HOL blocking）：浏览器会因为一些原因阻塞请求。浏览器对于同一个域名，同时只能有 4 个连接（这个根据浏览器内核不同可能会有所差异），超过浏览器最大连接数限制，后续请求就会被阻塞。<br>
+DNS查询（DNS Lookup）：浏览器需要知道目标服务器的 IP 才能建立连接。将域名解析为 IP 的这个系统就是 DNS。这个通常可以利用DNS缓存结果来达到减少这个时间的目的。<br>
+建立连接（Initial connection）：HTTP 是基于 TCP 协议的，浏览器最快也要在第三次握手时才能捎带 HTTP 请求报文，达到真正的建立连接，但是这些连接无法复用会导致每次请求都经历三次握手和慢启动。三次握手在高延迟的场景下影响较明显，慢启动则对文件类大请求影响较大。<br>
+SPDY采用的是DEFLATE算法压缩Header头</p>
+<p><strong>HTTP2.0的多路复用和HTTP1.X中的长连接复用有什么区别？</strong></p>
+<ul>
+<li>HTTP/1.* 一次请求-响应，建立一个连接，用完关闭；每一个请求都要建立一个连接；</li>
+<li>HTTP/1.1 Pipeling解决方式为，若干个请求排队串行化单线程处理，后面的请求等待前面请求的返回才能获得执行机会，一旦有某请求超时等，后续请求只能被阻塞，毫无办法，也就是人们常说的线头阻塞；</li>
+<li>HTTP/2多个请求可同时在一个连接上并行执行。某个请求任务耗时严重，不会影响到其它连接的正常执行；</li>
+</ul>
+<p><a href="https://www.jianshu.com/p/c77059d093da">先进而不能用HTTP2.0</a></p>
+<p>HTTP2使用HPACK算法压缩Header头</p>
+<p>服务器端nginx里新增的http2是分开配置的</p>
+<p><a href="https://www.jianshu.com/p/870dcf165ad1">HTTP无状态和connection:keep-alive的个人理解</a></p>
+<p>keep-alive：从HTTP/1.1起，浏览器默认都开启了Keep-Alive，保持连接特性，客户端和服务器都能选择随时关闭连接，则请求头中为connection:close。简单地说，当一个网页打开完成后，客户端和服务器之间用于传输HTTP数据的TCP连接不会关闭，如果客户端再次访问这个服务器上的网页，会继续使用这一条已经建立的TCP连接。但是Keep-Alive不会永久保持连接，它有一个保持时间，可以在不同的服务器软件（如Apache）中设定这个时间。</p>
+<p><a href="https://blog.csdn.net/happyq/article/details/8688353">HTTP Range头域</a></p>
+<p>HTTP头中一般断点下载时才用到Range和Content-Range实体头</p>
+<p>[<a href="https://my.oschina.net/u/876354/blog/914320">Failed to get D-Bus connection: Operation not permitted ， docker安装centos7之坑</a>](https://my.oschina.net/u/876354/blog/914320)</p>
+<p><a href="https://www.php.net/releases/8.0/en.php">PHP8相对PHP7的变更</a></p>
+<p>1）在DockerFile构建镜像时，无法使用systemctl，sysctl等命令，无法使用ifconfig eth0修改网卡ip。</p>
+<p>2）命令行启动elasticsearch的方法</p>
+<pre><code>/usr/share/elasticsearch/bin/elasticsearch \
+  -p /var/run/elasticsearch/elasticsearch.pid \
+# --quiet \
+  -Edefault.path.logs=/var/log/elasticsearch \
+  -Edefault.path.data=/var/lib/elasticsearch \
+  -Edefault.path.conf=/etc/elasticsearch \
+  -d \
+</code></pre>
+<p>不指定配置文件路径的话，默认路径是：/usr/share/elasticsearch/</p>
+<p>3）使用systemd管理elasticsearch的--quiet参数的意义</p>
+<p>Elasticsearch服务不会在<code>systemd</code> journal中记录信息，要启用<code>journalctl</code>日志记录，<code>--quiet</code>选项必须从<code>elasticsearch.service</code>文件中的<code>ExecStart</code>命令行中删除。</p>
+<p>4）不可用root用户以命令行方式启动elasticsearch</p>
+<p>5）DockerFile中命令行启动elasticsearch时需要先切换用户</p>
+<p>USER root #切换为root用户</p>
+<p>USER elasticsearch #切换为elasticsearch用户</p>
+<p><a href="https://blog.csdn.net/gxf212/article/details/89676307">Docker 清理none镜像 Prune命令</a></p>
+<p>docker build时产生很多名为none的镜像，这些镜像是虚悬镜像，为了方便下次构建时快速使用缓存</p>
+<p>--no-cache</p>
+<p><a href="https://blog.csdn.net/weixin_44297303/article/details/102956879">syntax error: unexpected end of file完美解决方案</a></p>
+<pre><code>sed -i &quot;s/\r//&quot; &lt;filepath&gt;
+</code></pre>
+<p>dockerfile的entrypoint所执行的脚本无法执行systemctl等命令，docker start时有可能和构建镜像时的权限一样</p>
+<p>Failed to get D-Bus connection: Operation not permitted</p>
+<p>dockerfile的entrypoint所执行的脚本内容需要有持续监听命令，否则脚本运行完容器就会停掉。</p>
+<p>docker容器启动时没有执行rc.local，检查/etc/rc.d/rc.local是否有执行权限。</p>
+<p>没有则chmod +x /etc/rc.d/rc.local</p>
+<p>iptables -nL -t nat</p>
 <p><a href="https://www.cnblogs.com/diandianquanquan/p/11966426.html">查看ElasticSearch服务状态和结果的URL</a><br>
 /cat/_nodes?v<br>
 ?v表示是否显示标题<br>
@@ -127,33 +375,14 @@ chown -R root:root /var/lib/ /var/log</p>
 <p>修改最后一次提交的信息，仅能修改最后一次的msg<br>
 <a href="https://www.cnblogs.com/fe-linjin/p/">git高级浅入之当我们需要修改某次commit信息</a>10814935.html<br>
 git commit --amend</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[work sql squiry]]></title>
-        <id>https://zduiyl.github.io/post/work-sql-squiry/</id>
-        <link href="https://zduiyl.github.io/post/work-sql-squiry/">
-        </link>
-        <updated>2021-02-23T05:50:33.000Z</updated>
-        <content type="html"><![CDATA[<p>forceDirectedGraphShow</p>
-<p>alarmway_getCode 获取验证码</p>
-<p>user_get_code 获取个人信息验证码</p>
-<p>蜜罐</p>
-<p>honeypots_bindnode</p>
-<p>已改<br>
-/user/func_honeypots.php<br>
-/user/function.php<br>
-/user/func_honeypotsgroup.php<br>
-/user/trapnodegroup.php 剩getTree1函数<br>
-/user/datastatistics.php<br>
-/user/attackflow.php  剩attackflow_download无需改动<br>
-/user/attackvideo.php  只有attackvideo_list有用到rawquery，无需改动<br>
-fix: 在common/functions.php文件中使用orm方式替换原本的sql执行语句</p>
-<p>不改logFront.class.php<br>
-func_market  待定<br>
-func_page 无<br>
-func_serial.php 无<br>
-func_datareport.php 无</p>
+<p>clickhouse<br>
+https://blog.csdn.net/chengyuqiang/article/details/108534587<br>
+默认密码是空<br>
+端口 8123</p>
+<p><a href="https://blog.csdn.net/xinluke/article/details/52229431">Linux 使用 cp 命令强制覆盖功能</a></p>
+<p>mysqldump -uroot -h主机地址 -P端口 -p &gt;/root/backup.sql</p>
+<p>history -c 清空当前终端历史记录<br>
+/root/.bash_history 所有历史记录</p>
 ]]></content>
     </entry>
     <entry>
