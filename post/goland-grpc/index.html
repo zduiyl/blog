@@ -9,7 +9,7 @@
 <meta name="description" content="">
 <meta name="theme-color" content="#000">
 <title>Goland gRPC | Zduiy Blog</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1615538183368">
+<link rel="shortcut icon" href="/favicon.ico?v=1618318070967">
 <link rel="stylesheet" href="/media/css/pisces.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -201,7 +201,7 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">10</span>
+        <span class="site-item-stat-count">18</span>
         <span class="site-item-stat-name language" data-lan="article">文章</span>
       </a>
     </div>
@@ -333,7 +333,7 @@
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>56<span class="pc-show language" data-lan="words">字数</span></span>
+      <span>67<span class="pc-show language" data-lan="words">字数</span></span>
     </span>
     
   </div>
@@ -347,6 +347,7 @@ https://www.cnblogs.com/xujunkai/p/13378976.html</p>
 https://www.jianshu.com/p/f6ff6381a81a</p>
 <p>protoc -I ./ pb/helloworld.proto --go_out=plugins=grpc:./</p>
 <p>protoc -I log/ log/pb/helloworld.proto --go_out=plugins=grpc:log</p>
+<p>protoc -I log/ log/pb/operationLog.proto --go_out=plugins=grpc:log</p>
 
             </div>
             
@@ -371,6 +372,10 @@ https://www.jianshu.com/p/f6ff6381a81a</p>
   </div>
   <div class="nav">
     <div class="nav-prev">
+      
+        <i class="fa fa-chevron-left"></i>
+        <a class="nav-pc-next" title="ProtoBuf(Protocol Buffer Languager)" href="https://zduiyl.github.io/post/protocol-buffer-languager/">ProtoBuf(Protocol Buffer Languager)</a class="nav-pc-next">
+        <a class="nav-mobile-prev" title="ProtoBuf(Protocol Buffer Languager)" href="https://zduiyl.github.io/post/protocol-buffer-languager/">上一篇</a>
       
     </div>
     <div class="nav-next">
@@ -829,6 +834,272 @@ https://www.jianshu.com/p/f6ff6381a81a</p>
     <div class="result" id="result">
       
       <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://zduiyl.github.io/post/hadoop/"" data-c="
+          &lt;p&gt;Hadoop 的作用&lt;br&gt;
+Hadoop 的作用非常简单，就是在多计算机集群环境中营造一个统一而稳定的存储和计算环境，并能为其他分布式应用服务提供平台支持。&lt;/p&gt;
+&lt;p&gt;也就是说， Hadoop 在某种程度上将多台计算机组织成了一台计算机（做同一件事），那么 HDFS 就相当于这台计算机的硬盘，而 MapReduce 就是这台计算机的 CPU 控制器。&lt;/p&gt;
+&lt;p&gt;https://www.runoob.com/w3cnote_genre/hadoop&lt;/p&gt;
+&lt;p&gt;图谱&lt;br&gt;
+https://www.runoob.com/wp-content/uploads/2016/07/png-Hadoop-by-StuQ.png&lt;/p&gt;
+">Hadoop</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://zduiyl.github.io/post/mapreduce/"" data-c="
+          &lt;p&gt;MapReduce 既是一个编程模型，又是一个计算框架。&lt;/p&gt;
+&lt;p&gt;为什么说 MapReduce 是一种非常简单又非常强大的编程模型？&lt;br&gt;
+简单在于其编程模型只包含 Map 和 Reduce 两个过程，map 的主要输入是一对 &amp;lt;Key,&lt;br&gt;
+Value&amp;gt; 值，经过 map 计算后输出一对 &amp;lt;Key, Value&amp;gt; 值；然后将相同 Key 合并，形成&lt;br&gt;
+&amp;lt;Key, Value 集合 &amp;gt;；再将这个 &amp;lt;Key, Value 集合 &amp;gt; 输入 reduce，经过计算输出零个或&lt;br&gt;
+多个 &amp;lt;Key, Value&amp;gt; 对。&lt;/p&gt;
+">MapReduce</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://zduiyl.github.io/post/data/"" data-c="
+          &lt;p&gt;常用的保证系统可用性的策略有&lt;strong&gt;冗余备份、失效转移和降级限流&lt;/strong&gt;。虽然这 3 种策略你可能早已耳熟能详，但还是有一些容易被忽略的地方。&lt;/p&gt;
+&lt;p&gt;比如&lt;strong&gt;冗余备份&lt;/strong&gt;，任何程序、任何数据，都至少要有一个备份，也就是说程序至少要部署到两台服务器，数据至少要备份到另一台服务器上。此外，稍有规模的互联网企业都会建设多个数据中心，数据中心之间互相进行备份，用户请求可能会被分发到任何一个数据中心，即所谓的异地多活，在遭遇地域性的重大故障和自然灾害的时候，依然保证应用的高可用。&lt;/p&gt;
+&lt;p&gt;当要访问的程序或者数据无法访问时，需要将访问请求转移到备份的程序或者数据所在的服务器上，这也就是&lt;strong&gt;失效转移&lt;/strong&gt;。失效转移你应该注意的是失效的鉴定，像 NameNode 这样主从服务器管理同一份数据的场景，如果从服务器错误地以为主服务器宕机而接管集群管理，会出现主从服务器一起对 DataNode 发送指令，进而导致集群混乱，也就是所谓的“脑裂”。这也是这类场景选举主服务器时，引入 ZooKeeper 的原因。ZooKeeper 的工作原理，我将会在后面专门分析。&lt;/p&gt;
+&lt;p&gt;当大量的用户请求或者数据处理请求到达的时候，由于计算资源有限，可能无法处理如此大量的请求，进而导致资源耗尽，系统崩溃。这种情况下，可以拒绝部分请求，即进行&lt;strong&gt;限流&lt;/strong&gt;；也可以关闭部分功能，降低资源消耗，即进行&lt;strong&gt;降级&lt;/strong&gt;。限流是互联网应用的常备功能，因为超出负载能力的访问流量在何时会突然到来，你根本无法预料，所以必须提前做好准备，当遇到突发高峰流量时，就可以立即启动限流。而降级通常是为可预知的场景准备的，比如电商的“双十一”促销，为了保障促销活动期间应用的核心功能能够正常运行，比如下单功能，可以对系统进行降级处理，关闭部分非重要功能，比如商品评价功能。&lt;/p&gt;
+">Data</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://zduiyl.github.io/post/wen-jian-xi-tong/"" data-c="
+          &lt;p&gt;GFS（Google 文件系统）&lt;br&gt;
+HDFS&lt;/p&gt;
+&lt;p&gt;IPFS https://zhuanlan.zhihu.com/p/32615963&lt;/p&gt;
+&lt;p&gt;ext2 ： 早期linux中常用的文件系统&lt;br&gt;
+ext3 ： ext2的升级版，带日志功能&lt;br&gt;
+RAMFS ： 内存文件系统，速度很快&lt;br&gt;
+NFS ： 网络文件系统，由SUN发明，主要用于远程文件共享&lt;br&gt;
+MS-DOS ： MS-DOS文件系统&lt;br&gt;
+VFAT ： Windows 95/98 操作系统采用的文件系统&lt;br&gt;
+FAT ： Windows XP 操作系统采用的文件系统&lt;br&gt;
+NTFS ： Windows NT/XP 操作系统采用的文件系统&lt;br&gt;
+HPFS ： OS/2 操作系统采用的文件系统&lt;br&gt;
+PROC : 虚拟的进程文件系统&lt;br&gt;
+ISO9660 ： 大部分光盘所采用的文件系统&lt;br&gt;
+ufsSun : OS 所采用的文件系统&lt;br&gt;
+NCPFS ： Novell 服务器所采用的文件系统&lt;br&gt;
+SMBFS ： Samba 的共享文件系统&lt;br&gt;
+XFS ： 由SGI开发的先进的日志文件系统，支持超大容量文件&lt;br&gt;
+JFS ：IBM的AIX使用的日志文件系统&lt;br&gt;
+ReiserFS : 基于平衡树结构的文件系统&lt;br&gt;
+udf: 可擦写的数据光盘文件系统&lt;br&gt;
+&lt;img src=&#34;https://zduiyl.github.io//post-images/1618304188292.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;p&gt;Linux&lt;/p&gt;
+&lt;p&gt;ext2具有极快的速度和极小的CPU占用率，可用于硬盘和移动存储设备&lt;br&gt;
+ext3增加日志功能，可回溯追踪&lt;br&gt;
+ext4日志式文件系统，支持1EB（1024*1024TB），最大单文件16TB，支持连续写入可减少文件碎片。rhel6默认文件系统&lt;br&gt;
+xfs可以管理500T的硬盘。rhel7默认文件系统&lt;br&gt;
+brtfs文件系统针对固态盘做优化，&lt;br&gt;
+zfs&lt;/p&gt;
+&lt;p&gt;windows&lt;/p&gt;
+&lt;p&gt;FAT16：MS—DOS和win95采用的磁盘分区格式，采用16位的文件分配表，只支持2GB的磁盘分区，最大单文件2GB，且磁盘利用率低&lt;br&gt;
+FAT32：（即Vfat）采用32位的文件分配表，支持最大分区128GB，最大文件4GB&lt;br&gt;
+NTFS：支持最大分区2TB，最大文件2TB，安全性和稳定性非常好，不易出现文件碎片。&lt;/p&gt;
+&lt;p&gt;Docker&lt;/p&gt;
+&lt;p&gt;首先应该想到的是 aufs，aufs 已经是比较古老的了。&lt;/p&gt;
+&lt;p&gt;实际上有以下集中类型可供使用。&lt;/p&gt;
+&lt;p&gt;存储驱动	支持的文件系统&lt;br&gt;
+overlay, overlay2	xfs, ext4&lt;br&gt;
+devicemapper	direct-lvm, loopback-lvm&lt;br&gt;
+aufs	xfs, ext4&lt;br&gt;
+btrfs	btrfs&lt;br&gt;
+zfs	zfs&lt;br&gt;
+vfs	其他文件系统&lt;br&gt;
+关于各种存储驱动的应用场景，可以参考官方文档Suitability for your workload。&lt;br&gt;
+注: aufs 在 Fedora、CentOS 上没有被支持。&lt;/p&gt;
+&lt;p&gt;docker 目前支持的联合文件系统种类包括AUFS、 btrfs、Device Mapper、 overlay 、 overlay2、vfs、zfs 等。多种文件系统目前的支持情况总结如下：&lt;br&gt;
+AUFS: 最早支持的文件系统，对于Debian/Ubuntu 支持好，虽然没有合并到Linux内核中，但成熟度很高&lt;br&gt;
+btrfs: 参考zfs等特性设计的文件系统，由Linux社区开发，视图未来取代Device Mapper,成熟度有待提高&lt;br&gt;
+Device Mapper: RedHat 公司和Docker 团队一起开发用于支持RHEL的文件系统，内核支持，性能略慢，成熟度高&lt;br&gt;
+overlay: 类似于AUFS的层次化文件系统，性能更好，从Linux 3.18 开始已经合并到内核，但成熟度有待提高&lt;br&gt;
+overlay2: Docker 1.12 后推出，原生支持128层，效率比OverlayFS高，较新的版本Dokcer支持&lt;br&gt;
+vfs: 基于普通文件系统（ext、nfs等）的中间层抽象，性能差，比较占用空间，成熟度也一般&lt;br&gt;
+zfs: 最初设计为Solarias 10 上的写时文件系统，拥有不少好的特性，但对于linux 支持还不够成熟。&lt;/p&gt;
+">文件系统</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://zduiyl.github.io/post/curl-http/"" data-c="
+          &lt;p&gt;前言：&lt;/p&gt;
+&lt;p&gt;测试中需要抓取http不同请求方法的包，get、post这类常见的方法随便访问网页就可以。&lt;/p&gt;
+&lt;p&gt;但如何发送http的其他请求方法呢，HEAD、OPTIONS、PUT、PATCH、DELETE、TRACE 和 CONNECT&lt;/p&gt;
+&lt;p&gt;查询资料发现可以用curl实现&lt;/p&gt;
+&lt;p&gt;HTTP 请求方法&lt;br&gt;
+HTTP1.0 定义了三种请求方法： GET, POST 和 HEAD方法。&lt;/p&gt;
+&lt;p&gt;HTTP1.1 新增了六种请求方法：OPTIONS、PUT、PATCH、DELETE、TRACE 和 CONNECT 方法。&lt;/p&gt;
+&lt;p&gt;序号	方法	描述&lt;br&gt;
+1	GET	请求指定的页面信息，并返回实体主体。&lt;br&gt;
+2	HEAD	类似于 GET 请求，只不过返回的响应中没有具体的内容，用于获取报头&lt;br&gt;
+3	POST	向指定资源提交数据进行处理请求（例如提交表单或者上传文件）。数据被包含在请求体中。POST 请求可能会导致新的资源的建立和/或已有资源的修改。&lt;br&gt;
+4	PUT	从客户端向服务器传送的数据取代指定的文档的内容。&lt;br&gt;
+5	DELETE	请求服务器删除指定的页面。&lt;br&gt;
+6	CONNECT	HTTP/1.1 协议中预留给能够将连接改为管道方式的代理服务器。&lt;br&gt;
+7	OPTIONS	允许客户端查看服务器的性能。&lt;br&gt;
+8	TRACE	回显服务器收到的请求，主要用于测试或诊断。&lt;br&gt;
+9	PATCH	是对 PUT 方法的补充，用来对已知资源进行局部更新 。&lt;br&gt;
+curl 命令的常用参数有：&lt;/p&gt;
+&lt;p&gt;-X &lt;method&gt; // 设置请求方法&lt;br&gt;
+-H &lt;header&gt; // 设置请求头&lt;br&gt;
+-D &lt;data&gt; // 设置请求数据（POST方法）&lt;br&gt;
+1、使用curl发送head请求，使用参数：- I  或者 --head&lt;/p&gt;
+&lt;p&gt;$ curl -I https://www.example.com&lt;br&gt;
+$ curl --head https://www.example.com&lt;br&gt;
+2、使用curl发送PUT请求 -v是展示服务器的响应&lt;/p&gt;
+&lt;p&gt;curl -v -X PUT -d &amp;quot;aaa&amp;quot; http://10.16.191.147/wenjian/test.txt&lt;br&gt;
+3、使用curl发送delete请求&lt;/p&gt;
+&lt;p&gt;curl -v -X DELETE http://10.16.191.147/wenjian/test.txt&lt;br&gt;
+4、使用curl发送OPTIONS请求&lt;/p&gt;
+&lt;p&gt;curl  -v -X OPTIONS http://10.16.191.147/&lt;br&gt;
+5、使用curl发送TRACE请求&lt;/p&gt;
+&lt;p&gt;curl  -v -X TRACE http://10.16.191.147/&lt;br&gt;
+6、使用curl发送 CONNECT请求&lt;/p&gt;
+&lt;p&gt;curl  -v -X CONNECT http://10.16.191.147/&lt;br&gt;
+ &lt;br&gt;
+————————————————&lt;br&gt;
+版权声明：本文为CSDN博主「新雪兰」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。&lt;br&gt;
+原文链接：https://blog.csdn.net/weixin_40748006/article/details/104812786&lt;/p&gt;
+&lt;p&gt;[root@localhost ~]# curl -v -X TRACE &amp;quot;https://192.168.129.153:443/&amp;quot; -k&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;About to connect() to 192.168.129.153 port 443 (#0)&lt;/li&gt;
+&lt;li&gt;Trying 192.168.129.153...&lt;/li&gt;
+&lt;li&gt;Adding handle: conn: 0x2291e70&lt;/li&gt;
+&lt;li&gt;Adding handle: send: 0&lt;/li&gt;
+&lt;li&gt;Adding handle: recv: 0&lt;/li&gt;
+&lt;li&gt;Curl_addHandleToPipeline: length: 1&lt;/li&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;Conn 0 (0x2291e70) send_pipe: 1, recv_pipe: 0&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Connected to 192.168.129.153 (192.168.129.153) port 443 (#0)&lt;/li&gt;
+&lt;li&gt;successfully set certificate verify locations:&lt;/li&gt;
+&lt;li&gt;CAfile: /etc/pki/tls/certs/ca-bundle.crt&lt;br&gt;
+CApath: none&lt;/li&gt;
+&lt;li&gt;SSLv3, TLS Unknown, Unknown (22):&lt;/li&gt;
+&lt;li&gt;SSLv3, TLS handshake, Client hello (1):&lt;/li&gt;
+&lt;li&gt;SSLv2, Unknown (22):&lt;/li&gt;
+&lt;li&gt;SSLv3, TLS handshake, Server hello (2):&lt;/li&gt;
+&lt;li&gt;SSLv2, Unknown (22):&lt;/li&gt;
+&lt;li&gt;SSLv3, TLS handshake, CERT (11):&lt;/li&gt;
+&lt;li&gt;SSLv2, Unknown (22):&lt;/li&gt;
+&lt;li&gt;SSLv3, TLS handshake, Server key exchange (12):&lt;/li&gt;
+&lt;li&gt;SSLv2, Unknown (22):&lt;/li&gt;
+&lt;li&gt;SSLv3, TLS handshake, Server finished (14):&lt;/li&gt;
+&lt;li&gt;SSLv2, Unknown (22):&lt;/li&gt;
+&lt;li&gt;SSLv3, TLS handshake, Client key exchange (16):&lt;/li&gt;
+&lt;li&gt;SSLv2, Unknown (20):&lt;/li&gt;
+&lt;li&gt;SSLv3, TLS change cipher, Client hello (1):&lt;/li&gt;
+&lt;li&gt;SSLv2, Unknown (22):&lt;/li&gt;
+&lt;li&gt;SSLv3, TLS handshake, Finished (20):&lt;/li&gt;
+&lt;li&gt;SSLv2, Unknown (20):&lt;/li&gt;
+&lt;li&gt;SSLv3, TLS change cipher, Client hello (1):&lt;/li&gt;
+&lt;li&gt;SSLv2, Unknown (22):&lt;/li&gt;
+&lt;li&gt;SSLv3, TLS handshake, Finished (20):&lt;/li&gt;
+&lt;li&gt;SSL connection using ECDHE-RSA-AES256-GCM-SHA384&lt;/li&gt;
+&lt;li&gt;Server certificate:&lt;/li&gt;
+&lt;li&gt;subject: C=CN; ST=Some-State; O=Jeeseen; OU=Jeeseen&lt;/li&gt;
+&lt;li&gt;start date: 2020-01-08 06:59:17 GMT&lt;/li&gt;
+&lt;li&gt;expire date: 2030-01-05 06:59:17 GMT&lt;/li&gt;
+&lt;li&gt;issuer: C=CN; ST=Some-State; O=Jeeseen; OU=Jeeseen&lt;/li&gt;
+&lt;li&gt;SSL certificate verify result: self signed certificate (18), continuing anyway.&lt;/li&gt;
+&lt;li&gt;SSLv2, Unknown (23):&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;TRACE / HTTP/1.1&lt;br&gt;
+User-Agent: curl/7.30.0&lt;br&gt;
+Host: 192.168.129.153&lt;br&gt;
+Accept: &lt;em&gt;/&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;SSLv2, Unknown (23):&lt;br&gt;
+&amp;lt; HTTP/1.1 405 Method Not Allowed&lt;br&gt;
+&amp;lt; Date: Tue, 23 Mar 2021 08:42:35 GMT&lt;/li&gt;
+&lt;li&gt;Server Apache is not blacklisted&lt;br&gt;
+&amp;lt; Server: Apache&lt;br&gt;
+&amp;lt; Allow:&lt;br&gt;
+&amp;lt; Content-Length: 222&lt;br&gt;
+&amp;lt; Content-Type: text/html; charset=iso-8859-1&lt;br&gt;
+&amp;lt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!DOCTYPE HTML PUBLIC &#34;-//IETF//DTD HTML 2.0//EN&#34;&gt;
+&lt;html&gt;&lt;head&gt;
+&lt;title&gt;405 Method Not Allowed&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;h1&gt;Method Not Allowed&lt;/h1&gt;
+&lt;p&gt;The requested method TRACE is not allowed for this URL.&lt;/p&gt;
+&lt;/body&gt;&lt;/html&gt;
+* Connection #0 to host 192.168.129.153 left intact
+">Curl Http</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://zduiyl.github.io/post/git/"" data-c="
+          &lt;p&gt;修改最近一次提交的message&lt;/p&gt;
+&lt;p&gt;git commit --amend&lt;/p&gt;
+">Git</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://zduiyl.github.io/post/byte-conversion/"" data-c="
+          &lt;h3 id=&#34;单位转换&#34;&gt;单位转换&lt;/h3&gt;
+&lt;p&gt;1Bytes = 8Bit&lt;br&gt;
+1KB = 1024Bytes&lt;br&gt;
+1MB = 1024KB&lt;br&gt;
+1GB = 1024MB&lt;br&gt;
+1TB = 1024GB&lt;/p&gt;
+&lt;h3 id=&#34;bit存储数值范围&#34;&gt;Bit存储数值范围&lt;/h3&gt;
+&lt;p&gt;8Bit   = 00000000&lt;br&gt;
+存储范围：00000000 ~ 11111111&lt;br&gt;
+十进制存储范围：0 ~ 2^8 = 0 ~ 256&lt;/p&gt;
+&lt;p&gt;16Bit = 0000000000000000&lt;br&gt;
+存储范围：0000000000000000 ~ 1111111111111111&lt;br&gt;
+十进制存储范围：0 ~ 2^16 = 0 ~ 65536&lt;/p&gt;
+&lt;h3 id=&#34;常用int类型&#34;&gt;常用int类型&lt;/h3&gt;
+&lt;p&gt;Go：uint8，uint16，uint32，uint64，int8，int16，int32，int64&lt;br&gt;
+Python3：只有一种整数类型 int，表示为长整型，没有 python2 中的 Long&lt;br&gt;
+Mysql：tinyint，smallint，mediumint，int，bigint&lt;/p&gt;
+&lt;p&gt;int8     = 8Bit   = 1Bytes&lt;br&gt;
+int16   = 16Bit = 2Bytes&lt;br&gt;
+int32   = 32Bit = 4Bytes&lt;br&gt;
+int64   = 64Bit = 8Bytes&lt;/p&gt;
+&lt;p&gt;int32可存储十进制数范围：-2147483648，2147483647&lt;br&gt;
+uint32表示无符号32位整型，可存储十进制数范围：0 ~ 4294967295&lt;/p&gt;
+&lt;h3 id=&#34;常见场景&#34;&gt;常见场景&lt;/h3&gt;
+&lt;p&gt;时间戳是int32&lt;br&gt;
+ipv4是int32&lt;br&gt;
+ipv6是int128&lt;/p&gt;
+&lt;h3 id=&#34;拓展资料&#34;&gt;拓展资料&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/ZBylant/article/details/86572567&#34;&gt;MySQL中 int(11)和int(10)有没有区别&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;https://www.cnblogs.com/yrjns/p/11246163.html&#34;&gt;位运算（&amp;amp;、|、^、~、&amp;gt;&amp;gt;、&amp;lt;&amp;lt;）&lt;/a&gt;&lt;/p&gt;
+">byte conversion</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://zduiyl.github.io/post/protocol-buffer-languager/"" data-c="
+          &lt;p&gt;protocol buffers 是一种语言无关、平台无关、可扩展的序列化结构数据的方法，它可用于通信协议、数据存储等。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://developers.google.com/protocol-buffers/docs/proto3&#34;&gt;官方文档&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.jianshu.com/p/bdd94a32fbd1&#34;&gt;翻译 ProtoBuf 官方文档（一）- 开发者指南&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.jianshu.com/p/6f68fb2c7d19&#34;&gt;翻译 ProtoBuf 官方文档（二）- 开发者指南&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.jianshu.com/c/27e9d713f929&#34;&gt;protobuf.js专题&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/HelloKitty520123/article/details/95618537&#34;&gt;可变长度的编码方式 varint&lt;/a&gt;&lt;/p&gt;
+&lt;br&gt;
+`文中摘抄`
+## protocol buffers 是什么？
+protocol buffers 是一种灵活，高效，自动化机制的结构数据序列化方法－可类比 XML，但是比 XML 更小、更快、更为简单。你可以定义数据的结构，然后使用特殊生成的源代码轻松的在各种数据流中使用各种语言进行编写和读取结构数据。你甚至可以更新数据结构，而不破坏根据旧数据结构编译而成并且已部署的程序。
+&lt;h3 id=&#34;随着系统的发展它获得了许多其他功能和用途&#34;&gt;随着系统的发展，它获得了许多其他功能和用途：&lt;/h3&gt;
+&lt;p&gt;1）自动生成的序列化和反序列化代码避免了手动解析的需要。&lt;br&gt;
+2）除了用于短期 RPC（远程过程调用）请求之外，人们还开始使用 protocol buffers 作为一种方便的自描述格式，用于持久存储数据（例如在 Bigtable 中）。&lt;br&gt;
+3）服务器 RPC 接口开始被声明为协议文件的一部分，protocol 编译器生成存根类，用户可以使用服务器接口的实际实现来覆盖这些类。&lt;/p&gt;
+&lt;p&gt;Protocol buffers 现在是 Google 的数据通用语言 - 在撰写本文时，Google 代码树中有 12183 个 .proto 文件，其中一共定义了 48162 种不同的 message 类型。它们既可用于 RPC 系统，也可用于各种存储系统中的数据持久存储。&lt;/p&gt;
+">ProtoBuf(Protocol Buffer Languager)</a>
+      </div>
+      
+      <div class="item">
         <a class="result-title" style="opacity: 0;" href="https://zduiyl.github.io/post/goland-grpc/"" data-c="
           &lt;p&gt;protoc 编译工具&lt;br&gt;
 https://www.cnblogs.com/huyuchengus/p/11235491.html&lt;/p&gt;
@@ -838,6 +1109,7 @@ https://www.cnblogs.com/xujunkai/p/13378976.html&lt;/p&gt;
 https://www.jianshu.com/p/f6ff6381a81a&lt;/p&gt;
 &lt;p&gt;protoc -I ./ pb/helloworld.proto --go_out=plugins=grpc:./&lt;/p&gt;
 &lt;p&gt;protoc -I log/ log/pb/helloworld.proto --go_out=plugins=grpc:log&lt;/p&gt;
+&lt;p&gt;protoc -I log/ log/pb/operationLog.proto --go_out=plugins=grpc:log&lt;/p&gt;
 ">Goland gRPC</a>
       </div>
       
@@ -853,6 +1125,15 @@ Catcher in the Rye&lt;/p&gt;
 &lt;p&gt;go mod init&lt;br&gt;
 go mod tidy&lt;/p&gt;
 &lt;p&gt;go run&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/p/68792989&#34;&gt;深度解密Go语言之context&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;https://github.com/ClickHouse/clickhouse-go&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/jeffrey11223/article/details/79166724&#34;&gt;golang中的三个点 &#39;...&#39; 的用法&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/weixin_45760685/article/details/105664595&#34;&gt;各类型转换&lt;/a&gt;&lt;br&gt;
+strconv包&lt;/p&gt;
+&lt;p&gt;字符串操作&lt;br&gt;
+strings包&lt;/p&gt;
+&lt;p&gt;strings.Split&lt;br&gt;
+strings.Join&lt;/p&gt;
 ">Golang</a>
       </div>
       
@@ -1171,7 +1452,6 @@ https://blog.csdn.net/chengyuqiang/article/details/108534587&lt;br&gt;
 默认密码是空&lt;br&gt;
 端口 8123&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/xinluke/article/details/52229431&#34;&gt;Linux 使用 cp 命令强制覆盖功能&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;mysqldump -uroot -h主机地址 -P端口 -p &amp;gt;/root/backup.sql&lt;/p&gt;
 &lt;p&gt;history -c 清空当前终端历史记录&lt;br&gt;
 /root/.bash_history 所有历史记录&lt;/p&gt;
 ">每日记录</a>

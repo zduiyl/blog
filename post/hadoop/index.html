@@ -8,7 +8,7 @@
 <meta name="keywords" content="Zduiy静态个人博客">
 <meta name="description" content="">
 <meta name="theme-color" content="#000">
-<title>每日记录 | Zduiy Blog</title>
+<title>Hadoop | Zduiy Blog</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1618318070967">
 <link rel="stylesheet" href="/media/css/pisces.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
@@ -38,7 +38,7 @@
 
 
 
-  <meta name="description" content="每日记录" />
+  <meta name="description" content="Hadoop" />
   <meta name="keywords" content="" />
 </head>
 
@@ -313,8 +313,8 @@
           <div class="section bg-color post post-page">
             <section class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://zduiyl.github.io/post/sad/">
-      每日记录
+    <a class="post-title-link" href="https://zduiyl.github.io/post/hadoop/">
+      Hadoop
     </a>
   </h1>
   <div class="post-meta">
@@ -322,106 +322,29 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span class="language" data-lan="publish">发布于</span>
-      <span class="publish-time" data-t="2021-02-23 15:32:43">2021-02-23</span>
+      <span class="publish-time" data-t="2021-04-13 18:28:17">2021-04-13</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>6<span class="language" data-lan="minute">分钟</span></span>
+      <span>1<span class="language" data-lan="minute">分钟</span></span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>1463<span class="pc-show language" data-lan="words">字数</span></span>
+      <span>141<span class="pc-show language" data-lan="words">字数</span></span>
     </span>
     
   </div>
 </section>
             <div class="post-body next-md-body" id="post_body">
-              <p><a href="https://www.cnblogs.com/heluan/p/8620312.html">HTTP1.0、HTTP1.1 和 HTTP2.0 的区别</a></p>
-<p>名词<br>
-带宽：拨号上网可能会使带宽成为影响请求的问题<br>
-延迟：</p>
-<p>浏览器阻塞（HOL blocking）：浏览器会因为一些原因阻塞请求。浏览器对于同一个域名，同时只能有 4 个连接（这个根据浏览器内核不同可能会有所差异），超过浏览器最大连接数限制，后续请求就会被阻塞。<br>
-DNS查询（DNS Lookup）：浏览器需要知道目标服务器的 IP 才能建立连接。将域名解析为 IP 的这个系统就是 DNS。这个通常可以利用DNS缓存结果来达到减少这个时间的目的。<br>
-建立连接（Initial connection）：HTTP 是基于 TCP 协议的，浏览器最快也要在第三次握手时才能捎带 HTTP 请求报文，达到真正的建立连接，但是这些连接无法复用会导致每次请求都经历三次握手和慢启动。三次握手在高延迟的场景下影响较明显，慢启动则对文件类大请求影响较大。<br>
-SPDY采用的是DEFLATE算法压缩Header头</p>
-<p><strong>HTTP2.0的多路复用和HTTP1.X中的长连接复用有什么区别？</strong></p>
-<ul>
-<li>HTTP/1.* 一次请求-响应，建立一个连接，用完关闭；每一个请求都要建立一个连接；</li>
-<li>HTTP/1.1 Pipeling解决方式为，若干个请求排队串行化单线程处理，后面的请求等待前面请求的返回才能获得执行机会，一旦有某请求超时等，后续请求只能被阻塞，毫无办法，也就是人们常说的线头阻塞；</li>
-<li>HTTP/2多个请求可同时在一个连接上并行执行。某个请求任务耗时严重，不会影响到其它连接的正常执行；</li>
-</ul>
-<p><a href="https://www.jianshu.com/p/c77059d093da">先进而不能用HTTP2.0</a></p>
-<p>HTTP2使用HPACK算法压缩Header头</p>
-<p>服务器端nginx里新增的http2是分开配置的</p>
-<p><a href="https://www.jianshu.com/p/870dcf165ad1">HTTP无状态和connection:keep-alive的个人理解</a></p>
-<p>keep-alive：从HTTP/1.1起，浏览器默认都开启了Keep-Alive，保持连接特性，客户端和服务器都能选择随时关闭连接，则请求头中为connection:close。简单地说，当一个网页打开完成后，客户端和服务器之间用于传输HTTP数据的TCP连接不会关闭，如果客户端再次访问这个服务器上的网页，会继续使用这一条已经建立的TCP连接。但是Keep-Alive不会永久保持连接，它有一个保持时间，可以在不同的服务器软件（如Apache）中设定这个时间。</p>
-<p><a href="https://blog.csdn.net/happyq/article/details/8688353">HTTP Range头域</a></p>
-<p>HTTP头中一般断点下载时才用到Range和Content-Range实体头</p>
-<p>[<a href="https://my.oschina.net/u/876354/blog/914320">Failed to get D-Bus connection: Operation not permitted ， docker安装centos7之坑</a>](https://my.oschina.net/u/876354/blog/914320)</p>
-<p><a href="https://www.php.net/releases/8.0/en.php">PHP8相对PHP7的变更</a></p>
-<p>1）在DockerFile构建镜像时，无法使用systemctl，sysctl等命令，无法使用ifconfig eth0修改网卡ip。</p>
-<p>2）命令行启动elasticsearch的方法</p>
-<pre><code>/usr/share/elasticsearch/bin/elasticsearch \
-  -p /var/run/elasticsearch/elasticsearch.pid \
-# --quiet \
-  -Edefault.path.logs=/var/log/elasticsearch \
-  -Edefault.path.data=/var/lib/elasticsearch \
-  -Edefault.path.conf=/etc/elasticsearch \
-  -d \
-</code></pre>
-<p>不指定配置文件路径的话，默认路径是：/usr/share/elasticsearch/</p>
-<p>3）使用systemd管理elasticsearch的--quiet参数的意义</p>
-<p>Elasticsearch服务不会在<code>systemd</code> journal中记录信息，要启用<code>journalctl</code>日志记录，<code>--quiet</code>选项必须从<code>elasticsearch.service</code>文件中的<code>ExecStart</code>命令行中删除。</p>
-<p>4）不可用root用户以命令行方式启动elasticsearch</p>
-<p>5）DockerFile中命令行启动elasticsearch时需要先切换用户</p>
-<p>USER root #切换为root用户</p>
-<p>USER elasticsearch #切换为elasticsearch用户</p>
-<p><a href="https://blog.csdn.net/gxf212/article/details/89676307">Docker 清理none镜像 Prune命令</a></p>
-<p>docker build时产生很多名为none的镜像，这些镜像是虚悬镜像，为了方便下次构建时快速使用缓存</p>
-<p>--no-cache</p>
-<p><a href="https://blog.csdn.net/weixin_44297303/article/details/102956879">syntax error: unexpected end of file完美解决方案</a></p>
-<pre><code>sed -i &quot;s/\r//&quot; &lt;filepath&gt;
-</code></pre>
-<p>dockerfile的entrypoint所执行的脚本无法执行systemctl等命令，docker start时有可能和构建镜像时的权限一样</p>
-<p>Failed to get D-Bus connection: Operation not permitted</p>
-<p>dockerfile的entrypoint所执行的脚本内容需要有持续监听命令，否则脚本运行完容器就会停掉。</p>
-<p>docker容器启动时没有执行rc.local，检查/etc/rc.d/rc.local是否有执行权限。</p>
-<p>没有则chmod +x /etc/rc.d/rc.local</p>
-<p>iptables -nL -t nat</p>
-<p><a href="https://www.cnblogs.com/diandianquanquan/p/11966426.html">查看ElasticSearch服务状态和结果的URL</a><br>
-/cat/_nodes?v<br>
-?v表示是否显示标题<br>
-/cat/health?v</p>
-<p>docker tag &lt;image_id&gt;</p>
-<p>[git 列出两个 commit 之间变更的文件列表]https://www.cnblogs.com/eleven24/p/8668138.html</p>
-<p>[git比较两个分支的文件的差异]https://blog.csdn.net/yzpbright/article/details/54143129</p>
-<p>Git diff branch1 branch2 --stat   //显示出所有有差异的文件列表<br>
-Git diff branch1 branch2 文件名(带路径)   //显示指定文件的详细差异<br>
-Git diff branch1 branch2                   //显示出所有有差异的文件的详细差异</p>
-<p>查看分支信息<br>
-git branch 查看本地分支<br>
-git branch -a 查看所有分支<br>
-git branch -r 查看所有远端分支</p>
-<p><a href="https://blog.csdn.net/X_And_Y/article/details/108568500">linux将文本文件按照行倒序输出</a></p>
-<p><a href="https://blog.csdn.net/sunkun2013/article/details/73277086">Linux：使用awk命令获取文本的某一行，某一列</a></p>
-<p>linux判断文件是否存在<br>
-https://www.cnblogs.com/xiongyunqi/p/3735773.html</p>
-<p>docker中elasticsearch如果使用volumn挂载了/var/lib/elasticsearch，/var/log/elasticsearch/，要修改这两个目录的用户和用户组chown -R /var/lib/elasticsearch /var/log/elasticsearc，不然elasticsearch不会生成日志，且启动会报错</p>
-<p>chown可以指定多个目录<br>
-chown -R root:root /var/lib/ /var/log</p>
-<p>修改最后一次提交的信息，仅能修改最后一次的msg<br>
-<a href="https://www.cnblogs.com/fe-linjin/p/">git高级浅入之当我们需要修改某次commit信息</a>10814935.html<br>
-git commit --amend</p>
-<p>clickhouse<br>
-https://blog.csdn.net/chengyuqiang/article/details/108534587<br>
-默认密码是空<br>
-端口 8123</p>
-<p><a href="https://blog.csdn.net/xinluke/article/details/52229431">Linux 使用 cp 命令强制覆盖功能</a></p>
-<p>history -c 清空当前终端历史记录<br>
-/root/.bash_history 所有历史记录</p>
+              <p>Hadoop 的作用<br>
+Hadoop 的作用非常简单，就是在多计算机集群环境中营造一个统一而稳定的存储和计算环境，并能为其他分布式应用服务提供平台支持。</p>
+<p>也就是说， Hadoop 在某种程度上将多台计算机组织成了一台计算机（做同一件事），那么 HDFS 就相当于这台计算机的硬盘，而 MapReduce 就是这台计算机的 CPU 控制器。</p>
+<p>https://www.runoob.com/w3cnote_genre/hadoop</p>
+<p>图谱<br>
+https://www.runoob.com/wp-content/uploads/2016/07/png-Hadoop-by-StuQ.png</p>
 
             </div>
             
@@ -434,7 +357,7 @@ https://blog.csdn.net/chengyuqiang/article/details/108534587<br>
     </li>
     <li class="post-copyright-link">
       <strong class="language" data-lan="link">本文链接：</strong>
-      <a href="https://zduiyl.github.io/post/sad/" title="每日记录">https://zduiyl.github.io/post/sad/</a>
+      <a href="https://zduiyl.github.io/post/hadoop/" title="Hadoop">https://zduiyl.github.io/post/hadoop/</a>
     </li>
     <li class="post-copyright-license">
       <strong class="language" data-lan="copyright">版权声明： </strong>
@@ -447,15 +370,11 @@ https://blog.csdn.net/chengyuqiang/article/details/108534587<br>
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="sourcetree提交到gerrit" href="https://zduiyl.github.io/post/sourcetree-ti-jiao-dao-girrit/">sourcetree提交到gerrit</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="sourcetree提交到gerrit" href="https://zduiyl.github.io/post/sourcetree-ti-jiao-dao-girrit/">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="Hello Gridea" href="https://zduiyl.github.io/post/hello-gridea/">Hello Gridea</a>
-        <a class="nav-mobile-next" title="Hello Gridea" href="https://zduiyl.github.io/post/hello-gridea/">下一篇</a>
+        <a class="nav-pc-next" title="MapReduce" href="https://zduiyl.github.io/post/mapreduce/">MapReduce</a>
+        <a class="nav-mobile-next" title="MapReduce" href="https://zduiyl.github.io/post/mapreduce/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>

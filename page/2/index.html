@@ -8,7 +8,7 @@
 <meta name="keywords" content="Zduiy静态个人博客">
 <meta name="description" content="">
 <meta name="theme-color" content="#000">
-<title>每日记录 | Zduiy Blog</title>
+<title>Zduiy Blog</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1618318070967">
 <link rel="stylesheet" href="/media/css/pisces.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
@@ -38,8 +38,6 @@
 
 
 
-  <meta name="description" content="每日记录" />
-  <meta name="keywords" content="" />
 </head>
 
 <body>
@@ -75,7 +73,7 @@
             
               
             
-            <li class="nav-item ">
+            <li class="nav-item nav-item-active">
               
               
                 <a href="/" target="_self">
@@ -174,23 +172,8 @@
     <div
       class="section-layout pisces ">
       <div class="section-layout-wrapper">
-        
-
-<div class="sidebar">
-  
-    <div class="sidebar-box box-shadow-wrapper bg-color right-motion" id="sidebar">
-      
-        <div class="post-list-sidebar">
-          <div class="sidebar-title">
-            <span id="tocSideBar" class="sidebar-title-item sidebar-title-active language" data-lan="index">文章目录</span>
-            <span id="metaSideBar" class="sidebar-title-item language" data-lan="preview">站点概览</span>
-          </div>
-        </div>
-      
-      <div class="sidebar-body pisces" id="sidebar_body">
-        
-          
-            
+        <div id="sidebarMeta" class="sidebar">
+    
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="/images/avatar.png"/>
@@ -226,92 +209,479 @@
 
 
 </div>
-          
-        
-      </div>
-    </div>
-  
 </div>
 <script>
-  const SIDEBAR_TITLE_ACTIVE = 'sidebar-title-active';
-  const SIDEBAR_BODY_ACTIVE = 'sidebar-body-active';
-  const SLIDE_UP_IN = 'slide-up-in';
-
-  let sidebar = document.querySelector('#sidebar'),
-  tocSideBar = document.querySelector('#tocSideBar'),
-  metaSideBar = document.querySelector('#metaSideBar'),
-  postToc = document.querySelector('#post_toc'),
-  postSiteMeta = document.querySelector('#post_side_meta'),
-  sidebarTitle = document.querySelector('.sidebar-title'),
-  sidebarBody = document.querySelector('#sidebar_body');
-
-  tocSideBar && tocSideBar.addEventListener('click', (e) => {
-    toggleSidebar(e);
-  });
-
-  metaSideBar && metaSideBar.addEventListener('click', (e) => {
-    toggleSidebar(e);
-  });
-
-  function toggleSidebar(e) {
-    let currentTitle = document.querySelector("."+SIDEBAR_TITLE_ACTIVE);
-    if (currentTitle == e.srcElement) {
-      return ;
-    }
-    let current, showElement, hideElement;
-    if (e.srcElement == metaSideBar) {
-      showElement = postSiteMeta;
-      hideElement = postToc;
-    } else if (e.srcElement == tocSideBar){
-      showElement = postToc;
-      hideElement = postSiteMeta;
-    }
-    currentTitle.classList.remove(SIDEBAR_TITLE_ACTIVE);
-    e.srcElement.classList.add(SIDEBAR_TITLE_ACTIVE);
-
-    window.Velocity(hideElement, 'stop');
-    window.Velocity(hideElement, 'transition.slideUpOut', {
-      display: 'none',
-      duration: 200,
-      complete: function () {
-        window.Velocity(showElement, 'transition.slideDownIn', {
-          duration: 200
-        });
+  let sidebarMeta = document.querySelector('#sidebarMeta');
+  let scheme = 'pisces';
+  let sidebarWrapper = document.querySelector('.sidebar-wrapper');
+  if (sidebarMeta && (scheme === 'pisces' || scheme === 'gemini')) {
+    document.addEventListener('scroll', function(e) {
+      if (document.scrollingElement.scrollTop > parseInt(sidebarMeta.style.marginTop) + 10) {
+        sidebarWrapper.classList.add('home-sidebar-fixed')
+      } else {
+        sidebarWrapper.classList.remove('home-sidebar-fixed')
       }
-    })
-    hideElement.classList.remove(SIDEBAR_BODY_ACTIVE);
-    showElement.classList.add(SIDEBAR_BODY_ACTIVE);
+    });
   }
+  </script>
+        <div class="section-box pisces">
+          <section class="section bg-color posts-expand slide-down-in">
+            
+  <article class="post-list-box  post box-shadow-wrapper">
+    <div class="article-wrapper bg-color">
+      <section class="post-header">
+  <h1 class="post-title">
+    <a class="post-title-link" href="https://zduiyl.github.io/post/php/">
+      PHP
+    </a>
+  </h1>
+  <div class="post-meta">
+    
+    <span class="meta-item pc-show">
+      <i class="fa fa-calendar-o"></i>
+      <span class="language" data-lan="publish">发布于</span>
+      <span class="publish-time" data-t="2021-03-09 11:45:34">2021-03-09</span>
+      <span class="post-meta-divider pc-show">|</span>
+    </span>
+    
+    <span class="meta-item">
+      <i class="fa fa-clock-o"></i>
+      <span>1<span class="language" data-lan="minute">分钟</span></span>
+    </span>
+    <span class="meta-item">
+      <span class="post-meta-divider">|</span>
+      <i class="fa fa-file-word-o"></i>
+      <span>29<span class="pc-show language" data-lan="words">字数</span></span>
+    </span>
+    
+  </div>
+</section>
+      <div class="post-body">
+        
+        
+          
+            <!-- 没有手动摘要切开启了自动摘要,则根据配置筛除摘要内容 -->
+            
+            
+              
+              
+              
+            
+              
+              
+              
+            
+              
+              
+              
+            
+            
+              <p><p><a href="https://my.oschina.net/gracebear/blog/1512245">php中有关，session值跨页面丢失的问题</a></p>
+<p>我的解决办法：<br>
+php.ini 开启session.save_path = &quot;/tmp&quot;</p>
 
-  postToc && postToc.addEventListener('transitionend', function() {
-    this.classList.remove(SLIDE_UP_IN);
-  });
+                
+              <p>
+            
+          
+        
+        
+        <div class="post-button text-center">
+          <a class="btn language" data-lan="read-more" href="https://zduiyl.github.io/post/php/" rel="contents">
+            阅读全文 »
+          </a>
+        </div>
+        
+      </div>
+      
+        <footer class="post-footer">
+          <div class="post-eof"></div>
+        </footer>
+      
+    </div>
+  </article>
 
-  if (sidebarBody) {
-    if (sidebarBody.classList.contains('pisces') || sidebarBody.classList.contains('gemini')) {
-      let hasFix = false;
-      let scrollEl = document.querySelector('.main-continer');
-      let limitTop = document.querySelector('#nav_ul').children.length * 42 + 162;
-      window.addEventListener('scroll', function(e) {
-        if (document.scrollingElement.scrollTop >= limitTop) {
-          if (!hasFix) {
-            sidebar.classList.add('sidebar-fixed');
-            hasFix = true;
-          }
-        } else {
-          if (hasFix) {
-            sidebar.classList.remove('sidebar-fixed');
-            hasFix = false;
-          }
-        }
-      });
-    }
-  }
-  
-</script>
-        <div class="section-box box-shadow-wrapper">
-          <div class="section bg-color post post-page">
-            <section class="post-header">
+  <article class="post-list-box  post box-shadow-wrapper">
+    <div class="article-wrapper bg-color">
+      <section class="post-header">
+  <h1 class="post-title">
+    <a class="post-title-link" href="https://zduiyl.github.io/post/nginx/">
+      nginx
+    </a>
+  </h1>
+  <div class="post-meta">
+    
+    <span class="meta-item pc-show">
+      <i class="fa fa-calendar-o"></i>
+      <span class="language" data-lan="publish">发布于</span>
+      <span class="publish-time" data-t="2021-03-09 11:44:40">2021-03-09</span>
+      <span class="post-meta-divider pc-show">|</span>
+    </span>
+    
+    <span class="meta-item">
+      <i class="fa fa-clock-o"></i>
+      <span>1<span class="language" data-lan="minute">分钟</span></span>
+    </span>
+    <span class="meta-item">
+      <span class="post-meta-divider">|</span>
+      <i class="fa fa-file-word-o"></i>
+      <span>4<span class="pc-show language" data-lan="words">字数</span></span>
+    </span>
+    
+  </div>
+</section>
+      <div class="post-body">
+        
+        
+          
+            <!-- 没有手动摘要切开启了自动摘要,则根据配置筛除摘要内容 -->
+            
+            
+              
+              
+              
+            
+              
+              
+            
+              <p><p><a href="https://www.cnblogs.com/xuliangwei/p/11568223.html">Nginx中的break和last</a></p>
+
+                
+              <p>
+            
+          
+        
+        
+        <div class="post-button text-center">
+          <a class="btn language" data-lan="read-more" href="https://zduiyl.github.io/post/nginx/" rel="contents">
+            阅读全文 »
+          </a>
+        </div>
+        
+      </div>
+      
+        <footer class="post-footer">
+          <div class="post-eof"></div>
+        </footer>
+      
+    </div>
+  </article>
+
+  <article class="post-list-box  post box-shadow-wrapper">
+    <div class="article-wrapper bg-color">
+      <section class="post-header">
+  <h1 class="post-title">
+    <a class="post-title-link" href="https://zduiyl.github.io/post/docker-command/">
+      docker command
+    </a>
+  </h1>
+  <div class="post-meta">
+    
+    <span class="meta-item pc-show">
+      <i class="fa fa-calendar-o"></i>
+      <span class="language" data-lan="publish">发布于</span>
+      <span class="publish-time" data-t="2021-03-09 09:51:43">2021-03-09</span>
+      <span class="post-meta-divider pc-show">|</span>
+    </span>
+    
+    <span class="meta-item">
+      <i class="fa fa-folder-o"></i>
+      <span class="pc-show language" data-lan="category-in">分类于</span>
+      
+      
+      <a href="https://zduiyl.github.io/tag/Ga22TSg16/">
+        <span>Docker</span>
+      </a>
+      
+      
+    </span>
+    <span class="post-meta-divider">|</span>
+    
+    <span class="meta-item">
+      <i class="fa fa-clock-o"></i>
+      <span>3<span class="language" data-lan="minute">分钟</span></span>
+    </span>
+    <span class="meta-item">
+      <span class="post-meta-divider">|</span>
+      <i class="fa fa-file-word-o"></i>
+      <span>414<span class="pc-show language" data-lan="words">字数</span></span>
+    </span>
+    
+  </div>
+</section>
+      <div class="post-body">
+        
+        
+          
+            <!-- 没有手动摘要切开启了自动摘要,则根据配置筛除摘要内容 -->
+            
+            
+              
+              
+              
+            
+              
+              
+              
+            
+              
+              
+              
+            
+            
+              <p><pre><code># docker --help
+
+Management Commands:
+
+                
+                  <!-- 自动摘要出来的内容有<code则补上结尾,防止格式错误 -->
+                  </code></pre>
+                
+              <p>
+            
+          
+        
+        
+        <div class="post-button text-center">
+          <a class="btn language" data-lan="read-more" href="https://zduiyl.github.io/post/docker-command/" rel="contents">
+            阅读全文 »
+          </a>
+        </div>
+        
+      </div>
+      
+        <footer class="post-footer">
+          <div class="post-eof"></div>
+        </footer>
+      
+    </div>
+  </article>
+
+  <article class="post-list-box  post box-shadow-wrapper">
+    <div class="article-wrapper bg-color">
+      <section class="post-header">
+  <h1 class="post-title">
+    <a class="post-title-link" href="https://zduiyl.github.io/post/clickhouse/">
+      clickhouse
+    </a>
+  </h1>
+  <div class="post-meta">
+    
+    <span class="meta-item pc-show">
+      <i class="fa fa-calendar-o"></i>
+      <span class="language" data-lan="publish">发布于</span>
+      <span class="publish-time" data-t="2021-03-02 18:04:24">2021-03-02</span>
+      <span class="post-meta-divider pc-show">|</span>
+    </span>
+    
+    <span class="meta-item">
+      <i class="fa fa-clock-o"></i>
+      <span>2<span class="language" data-lan="minute">分钟</span></span>
+    </span>
+    <span class="meta-item">
+      <span class="post-meta-divider">|</span>
+      <i class="fa fa-file-word-o"></i>
+      <span>313<span class="pc-show language" data-lan="words">字数</span></span>
+    </span>
+    
+  </div>
+</section>
+      <div class="post-body">
+        
+        
+          
+            <!-- 没有手动摘要切开启了自动摘要,则根据配置筛除摘要内容 -->
+            
+            
+              
+              
+              
+            
+              
+              
+              
+            
+              
+              
+              
+            
+            
+              <p><h1 id="database-engines">Database Engines</h1>
+<p>Database engines allow you to work with tables.</p>
+<p>By default, ClickHouse uses database engine <strong>Atomic</strong>. It is provides configurable table engines and an SQL dialect.</p>
+
+                
+              <p>
+            
+          
+        
+        
+        <div class="post-button text-center">
+          <a class="btn language" data-lan="read-more" href="https://zduiyl.github.io/post/clickhouse/" rel="contents">
+            阅读全文 »
+          </a>
+        </div>
+        
+      </div>
+      
+        <footer class="post-footer">
+          <div class="post-eof"></div>
+        </footer>
+      
+    </div>
+  </article>
+
+  <article class="post-list-box  post box-shadow-wrapper">
+    <div class="article-wrapper bg-color">
+      <section class="post-header">
+  <h1 class="post-title">
+    <a class="post-title-link" href="https://zduiyl.github.io/post/microserver-audit-log/">
+      microserver audit log
+    </a>
+  </h1>
+  <div class="post-meta">
+    
+    <span class="meta-item pc-show">
+      <i class="fa fa-calendar-o"></i>
+      <span class="language" data-lan="publish">发布于</span>
+      <span class="publish-time" data-t="2021-03-02 09:38:55">2021-03-02</span>
+      <span class="post-meta-divider pc-show">|</span>
+    </span>
+    
+    <span class="meta-item">
+      <i class="fa fa-clock-o"></i>
+      <span>2<span class="language" data-lan="minute">分钟</span></span>
+    </span>
+    <span class="meta-item">
+      <span class="post-meta-divider">|</span>
+      <i class="fa fa-file-word-o"></i>
+      <span>300<span class="pc-show language" data-lan="words">字数</span></span>
+    </span>
+    
+  </div>
+</section>
+      <div class="post-body">
+        
+        
+          
+            <!-- 没有手动摘要切开启了自动摘要,则根据配置筛除摘要内容 -->
+            
+            
+              
+              
+              
+            
+              
+              
+              
+            
+              
+              
+              
+            
+            
+              <p><p>client<br>
+用户操作日志：<br>
+某某用户新增了实训，add，{&quot;param1&quot;:&quot;&quot;, &quot;param2&quot;:&quot;&quot;}<br>
+
+                
+              <p>
+            
+          
+        
+        
+        <div class="post-button text-center">
+          <a class="btn language" data-lan="read-more" href="https://zduiyl.github.io/post/microserver-audit-log/" rel="contents">
+            阅读全文 »
+          </a>
+        </div>
+        
+      </div>
+      
+        <footer class="post-footer">
+          <div class="post-eof"></div>
+        </footer>
+      
+    </div>
+  </article>
+
+  <article class="post-list-box  post box-shadow-wrapper">
+    <div class="article-wrapper bg-color">
+      <section class="post-header">
+  <h1 class="post-title">
+    <a class="post-title-link" href="https://zduiyl.github.io/post/sourcetree-ti-jiao-dao-girrit/">
+      sourcetree提交到gerrit
+    </a>
+  </h1>
+  <div class="post-meta">
+    
+    <span class="meta-item pc-show">
+      <i class="fa fa-calendar-o"></i>
+      <span class="language" data-lan="publish">发布于</span>
+      <span class="publish-time" data-t="2021-03-01 15:12:36">2021-03-01</span>
+      <span class="post-meta-divider pc-show">|</span>
+    </span>
+    
+    <span class="meta-item">
+      <i class="fa fa-clock-o"></i>
+      <span>3<span class="language" data-lan="minute">分钟</span></span>
+    </span>
+    <span class="meta-item">
+      <span class="post-meta-divider">|</span>
+      <i class="fa fa-file-word-o"></i>
+      <span>453<span class="pc-show language" data-lan="words">字数</span></span>
+    </span>
+    
+  </div>
+</section>
+      <div class="post-body">
+        
+        
+          
+            <!-- 没有手动摘要切开启了自动摘要,则根据配置筛除摘要内容 -->
+            
+            
+              
+              
+              
+            
+              
+              
+              
+            
+              
+              
+              
+            
+            
+              <p><p><a href="https://www.jianshu.com/p/2e196c7c6d73?from=groupmessage">SourceTree 提交代码到gerrit</a></p>
+<p>remote: You are not allowed to perform this operation.<br>
+remote: To push into this reference you need 'Push' rights.<br>
+
+                
+              <p>
+            
+          
+        
+        
+        <div class="post-button text-center">
+          <a class="btn language" data-lan="read-more" href="https://zduiyl.github.io/post/sourcetree-ti-jiao-dao-girrit/" rel="contents">
+            阅读全文 »
+          </a>
+        </div>
+        
+      </div>
+      
+        <footer class="post-footer">
+          <div class="post-eof"></div>
+        </footer>
+      
+    </div>
+  </article>
+
+  <article class="post-list-box  post box-shadow-wrapper">
+    <div class="article-wrapper bg-color">
+      <section class="post-header">
   <h1 class="post-title">
     <a class="post-title-link" href="https://zduiyl.github.io/post/sad/">
       每日记录
@@ -338,134 +708,148 @@
     
   </div>
 </section>
-            <div class="post-body next-md-body" id="post_body">
-              <p><a href="https://www.cnblogs.com/heluan/p/8620312.html">HTTP1.0、HTTP1.1 和 HTTP2.0 的区别</a></p>
+      <div class="post-body">
+        
+        
+          
+            <!-- 没有手动摘要切开启了自动摘要,则根据配置筛除摘要内容 -->
+            
+            
+              
+              
+              
+            
+              
+              
+              
+            
+              
+              
+              
+            
+            
+              <p><p><a href="https://www.cnblogs.com/heluan/p/8620312.html">HTTP1.0、HTTP1.1 和 HTTP2.0 的区别</a></p>
 <p>名词<br>
 带宽：拨号上网可能会使带宽成为影响请求的问题<br>
-延迟：</p>
-<p>浏览器阻塞（HOL blocking）：浏览器会因为一些原因阻塞请求。浏览器对于同一个域名，同时只能有 4 个连接（这个根据浏览器内核不同可能会有所差异），超过浏览器最大连接数限制，后续请求就会被阻塞。<br>
-DNS查询（DNS Lookup）：浏览器需要知道目标服务器的 IP 才能建立连接。将域名解析为 IP 的这个系统就是 DNS。这个通常可以利用DNS缓存结果来达到减少这个时间的目的。<br>
-建立连接（Initial connection）：HTTP 是基于 TCP 协议的，浏览器最快也要在第三次握手时才能捎带 HTTP 请求报文，达到真正的建立连接，但是这些连接无法复用会导致每次请求都经历三次握手和慢启动。三次握手在高延迟的场景下影响较明显，慢启动则对文件类大请求影响较大。<br>
-SPDY采用的是DEFLATE算法压缩Header头</p>
-<p><strong>HTTP2.0的多路复用和HTTP1.X中的长连接复用有什么区别？</strong></p>
-<ul>
-<li>HTTP/1.* 一次请求-响应，建立一个连接，用完关闭；每一个请求都要建立一个连接；</li>
-<li>HTTP/1.1 Pipeling解决方式为，若干个请求排队串行化单线程处理，后面的请求等待前面请求的返回才能获得执行机会，一旦有某请求超时等，后续请求只能被阻塞，毫无办法，也就是人们常说的线头阻塞；</li>
-<li>HTTP/2多个请求可同时在一个连接上并行执行。某个请求任务耗时严重，不会影响到其它连接的正常执行；</li>
-</ul>
-<p><a href="https://www.jianshu.com/p/c77059d093da">先进而不能用HTTP2.0</a></p>
-<p>HTTP2使用HPACK算法压缩Header头</p>
-<p>服务器端nginx里新增的http2是分开配置的</p>
-<p><a href="https://www.jianshu.com/p/870dcf165ad1">HTTP无状态和connection:keep-alive的个人理解</a></p>
-<p>keep-alive：从HTTP/1.1起，浏览器默认都开启了Keep-Alive，保持连接特性，客户端和服务器都能选择随时关闭连接，则请求头中为connection:close。简单地说，当一个网页打开完成后，客户端和服务器之间用于传输HTTP数据的TCP连接不会关闭，如果客户端再次访问这个服务器上的网页，会继续使用这一条已经建立的TCP连接。但是Keep-Alive不会永久保持连接，它有一个保持时间，可以在不同的服务器软件（如Apache）中设定这个时间。</p>
-<p><a href="https://blog.csdn.net/happyq/article/details/8688353">HTTP Range头域</a></p>
-<p>HTTP头中一般断点下载时才用到Range和Content-Range实体头</p>
-<p>[<a href="https://my.oschina.net/u/876354/blog/914320">Failed to get D-Bus connection: Operation not permitted ， docker安装centos7之坑</a>](https://my.oschina.net/u/876354/blog/914320)</p>
-<p><a href="https://www.php.net/releases/8.0/en.php">PHP8相对PHP7的变更</a></p>
-<p>1）在DockerFile构建镜像时，无法使用systemctl，sysctl等命令，无法使用ifconfig eth0修改网卡ip。</p>
-<p>2）命令行启动elasticsearch的方法</p>
-<pre><code>/usr/share/elasticsearch/bin/elasticsearch \
-  -p /var/run/elasticsearch/elasticsearch.pid \
-# --quiet \
-  -Edefault.path.logs=/var/log/elasticsearch \
-  -Edefault.path.data=/var/lib/elasticsearch \
-  -Edefault.path.conf=/etc/elasticsearch \
-  -d \
-</code></pre>
-<p>不指定配置文件路径的话，默认路径是：/usr/share/elasticsearch/</p>
-<p>3）使用systemd管理elasticsearch的--quiet参数的意义</p>
-<p>Elasticsearch服务不会在<code>systemd</code> journal中记录信息，要启用<code>journalctl</code>日志记录，<code>--quiet</code>选项必须从<code>elasticsearch.service</code>文件中的<code>ExecStart</code>命令行中删除。</p>
-<p>4）不可用root用户以命令行方式启动elasticsearch</p>
-<p>5）DockerFile中命令行启动elasticsearch时需要先切换用户</p>
-<p>USER root #切换为root用户</p>
-<p>USER elasticsearch #切换为elasticsearch用户</p>
-<p><a href="https://blog.csdn.net/gxf212/article/details/89676307">Docker 清理none镜像 Prune命令</a></p>
-<p>docker build时产生很多名为none的镜像，这些镜像是虚悬镜像，为了方便下次构建时快速使用缓存</p>
-<p>--no-cache</p>
-<p><a href="https://blog.csdn.net/weixin_44297303/article/details/102956879">syntax error: unexpected end of file完美解决方案</a></p>
-<pre><code>sed -i &quot;s/\r//&quot; &lt;filepath&gt;
-</code></pre>
-<p>dockerfile的entrypoint所执行的脚本无法执行systemctl等命令，docker start时有可能和构建镜像时的权限一样</p>
-<p>Failed to get D-Bus connection: Operation not permitted</p>
-<p>dockerfile的entrypoint所执行的脚本内容需要有持续监听命令，否则脚本运行完容器就会停掉。</p>
-<p>docker容器启动时没有执行rc.local，检查/etc/rc.d/rc.local是否有执行权限。</p>
-<p>没有则chmod +x /etc/rc.d/rc.local</p>
-<p>iptables -nL -t nat</p>
-<p><a href="https://www.cnblogs.com/diandianquanquan/p/11966426.html">查看ElasticSearch服务状态和结果的URL</a><br>
-/cat/_nodes?v<br>
-?v表示是否显示标题<br>
-/cat/health?v</p>
-<p>docker tag &lt;image_id&gt;</p>
-<p>[git 列出两个 commit 之间变更的文件列表]https://www.cnblogs.com/eleven24/p/8668138.html</p>
-<p>[git比较两个分支的文件的差异]https://blog.csdn.net/yzpbright/article/details/54143129</p>
-<p>Git diff branch1 branch2 --stat   //显示出所有有差异的文件列表<br>
-Git diff branch1 branch2 文件名(带路径)   //显示指定文件的详细差异<br>
-Git diff branch1 branch2                   //显示出所有有差异的文件的详细差异</p>
-<p>查看分支信息<br>
-git branch 查看本地分支<br>
-git branch -a 查看所有分支<br>
-git branch -r 查看所有远端分支</p>
-<p><a href="https://blog.csdn.net/X_And_Y/article/details/108568500">linux将文本文件按照行倒序输出</a></p>
-<p><a href="https://blog.csdn.net/sunkun2013/article/details/73277086">Linux：使用awk命令获取文本的某一行，某一列</a></p>
-<p>linux判断文件是否存在<br>
-https://www.cnblogs.com/xiongyunqi/p/3735773.html</p>
-<p>docker中elasticsearch如果使用volumn挂载了/var/lib/elasticsearch，/var/log/elasticsearch/，要修改这两个目录的用户和用户组chown -R /var/lib/elasticsearch /var/log/elasticsearc，不然elasticsearch不会生成日志，且启动会报错</p>
-<p>chown可以指定多个目录<br>
-chown -R root:root /var/lib/ /var/log</p>
-<p>修改最后一次提交的信息，仅能修改最后一次的msg<br>
-<a href="https://www.cnblogs.com/fe-linjin/p/">git高级浅入之当我们需要修改某次commit信息</a>10814935.html<br>
-git commit --amend</p>
-<p>clickhouse<br>
-https://blog.csdn.net/chengyuqiang/article/details/108534587<br>
-默认密码是空<br>
-端口 8123</p>
-<p><a href="https://blog.csdn.net/xinluke/article/details/52229431">Linux 使用 cp 命令强制覆盖功能</a></p>
-<p>history -c 清空当前终端历史记录<br>
-/root/.bash_history 所有历史记录</p>
 
-            </div>
+                
+              <p>
             
-            
-              <div class="post-footer">
-  <ul class="post-copyright">
-    <li class="post-copyright-author">
-      <strong class="language" data-lan="author">本文作者：</strong>
-      Zduiy
-    </li>
-    <li class="post-copyright-link">
-      <strong class="language" data-lan="link">本文链接：</strong>
-      <a href="https://zduiyl.github.io/post/sad/" title="每日记录">https://zduiyl.github.io/post/sad/</a>
-    </li>
-    <li class="post-copyright-license">
-      <strong class="language" data-lan="copyright">版权声明： </strong>
-      本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i> BY-NC-SA</a> 许可协议。转载请注明出处！
-    </li>
-  </ul>
-  <div class="tags">
+          
+        
+        
+        <div class="post-button text-center">
+          <a class="btn language" data-lan="read-more" href="https://zduiyl.github.io/post/sad/" rel="contents">
+            阅读全文 »
+          </a>
+        </div>
+        
+      </div>
+      
+        <footer class="post-footer">
+          <div class="post-eof"></div>
+        </footer>
+      
+    </div>
+  </article>
+
+  <article class="post-list-box  post box-shadow-wrapper">
+    <div class="article-wrapper bg-color">
+      <section class="post-header">
+  <h1 class="post-title">
+    <a class="post-title-link" href="https://zduiyl.github.io/post/hello-gridea/">
+      Hello Gridea
+    </a>
+  </h1>
+  <div class="post-meta">
+    
+    <span class="meta-item pc-show">
+      <i class="fa fa-calendar-o"></i>
+      <span class="language" data-lan="publish">发布于</span>
+      <span class="publish-time" data-t="2018-12-12 00:00:00">2018-12-12</span>
+      <span class="post-meta-divider pc-show">|</span>
+    </span>
+    
+    <span class="meta-item">
+      <i class="fa fa-folder-o"></i>
+      <span class="pc-show language" data-lan="category-in">分类于</span>
+      
+      
+      <a href="https://zduiyl.github.io/tag/pcxnlQNm2/">
+        <span>Gridea</span>
+      </a>
+      
+      
+    </span>
+    <span class="post-meta-divider">|</span>
+    
+    <span class="meta-item">
+      <i class="fa fa-clock-o"></i>
+      <span>2<span class="language" data-lan="minute">分钟</span></span>
+    </span>
+    <span class="meta-item">
+      <span class="post-meta-divider">|</span>
+      <i class="fa fa-file-word-o"></i>
+      <span>298<span class="pc-show language" data-lan="words">字数</span></span>
+    </span>
     
   </div>
-  <div class="nav">
-    <div class="nav-prev">
-      
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="sourcetree提交到gerrit" href="https://zduiyl.github.io/post/sourcetree-ti-jiao-dao-girrit/">sourcetree提交到gerrit</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="sourcetree提交到gerrit" href="https://zduiyl.github.io/post/sourcetree-ti-jiao-dao-girrit/">上一篇</a>
-      
-    </div>
-    <div class="nav-next">
-      
-        <a class="nav-pc-next" title="Hello Gridea" href="https://zduiyl.github.io/post/hello-gridea/">Hello Gridea</a>
-        <a class="nav-mobile-next" title="Hello Gridea" href="https://zduiyl.github.io/post/hello-gridea/">下一篇</a>
-        <i class="fa fa-chevron-right"></i>
-      
-    </div>
-  </div>
-</div>
-            
-            
-  
+</section>
+      <div class="post-body">
+        
+        
+          
+            <p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
+✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
 
-          </div>
+          
+        
+        
+        <div class="post-button text-center">
+          <a class="btn language" data-lan="read-more" href="https://zduiyl.github.io/post/hello-gridea/" rel="contents">
+            阅读全文 »
+          </a>
+        </div>
+        
+      </div>
+      
+        <footer class="post-footer">
+          <div class="post-eof"></div>
+        </footer>
+      
+    </div>
+  </article>
+  
+            
+            
+<div class="page bg-color">
+  <ul class="pagination-ul">
+    
+      <li class="pagination-dir">
+        <a href="https://zduiyl.github.io/">
+          <i class="fa fa-angle-left"></i>
+        </a>
+      </li>
+    
+    
+      
+        <li class="pagination-li ">
+            <a href="/page/../">
+              1
+            </a>
+        </li>
+      
+        <li class="pagination-li pagination-active">
+            <a href="/page/2">
+              2
+            </a>
+        </li>
+      
+    
+    
+  </ul>
+</div>
+          </section>
         </div>
       </div>
     </div>
@@ -672,223 +1056,6 @@ https://blog.csdn.net/chengyuqiang/article/details/108534587<br>
     parent.insertBefore(aelem, next);
   })
 </script>
-    <div class="reward-mask" style="display: none;">
-  <div class="reward-relative">
-    <span class="close" aria-hidden="true">x</span>
-    <div class="reward-body">
-      <h2>感谢您的支持，我会继续努力的!</h2>
-      <div class="reward-img-box">
-        <div style="position: relative; width: 140px; height: 140px;">
-          
-          
-          
-        </div>
-      </div>
-      <p class="reward-word">扫码打赏，你说多少就多少</p>
-      <p class="reward-tip">打开微信扫一扫，即可进行扫码打赏哦</p>
-    </div>
-    <div class="bottom">
-      
-      
-    </div>
-  </div>
-</div>
-<style>
-  .reward-mask {
-    position: fixed;
-    z-index: 99999;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: #00000054;
-  }
-
-  .reward-relative {
-    position: relative;
-    width: 480px;
-    text-align: center;
-    margin: 0 auto;
-    border-radius: 5px;
-    background-color: #fff;
-    top: 50%;
-    margin-top: -205px;
-  }
-
-  .reward-relative .close {
-    position: absolute;
-    right: 10px;
-    font-weight: normal;
-    font-size: 16px;
-    color: #929292;
-  }
-
-  .reward-body {
-    padding: 40px 20px 20px;
-  }
-
-  .bottom {
-    display: flex;
-  }
-
-  .reward-btn {
-    text-align: center;
-  }
-
-  .reward-btn-text {
-    display: inline-block;
-    cursor: pointer;
-    width: 60px;
-    height: 60px;
-    line-height: 60px;
-    border-radius: 50%;
-    background-color: #ff9734;
-    color: #FFF;
-    margin-top: 20px;
-  }
-
-  .pay-text {
-    margin-top: 10px;
-    padding: 10px;
-    flex: 1;
-    transition: all .2s linear;
-  }
-
-  .pay-text:hover {
-    background-color: #a5a5a536;
-  }
-
-  .reward-body h2 {
-    padding-top: 10px;
-    text-align: center;
-    color: #a3a3a3;
-    font-size: 16px;
-    font-weight: normal;
-    margin: 0 0 20px;
-  }
-
-  .reward-body h2:after,
-  .reward-body h2:before {
-    font-family: Arial, Helvetica, sans-serif;
-    background: 0 0;
-    width: 0;
-    height: 0;
-    font-style: normal;
-    color: #eee;
-    font-size: 80px;
-    position: absolute;
-    top: 20px;
-  }
-
-  .reward-body h2:before {
-    content: '\201c';
-    left: 50px;
-  }
-
-  .reward-body h2:after {
-    content: '\201d';
-    right: 80px;
-  }
-
-  .reward-img-box {
-    display: inline-block;
-    padding: 10px;
-    border: 6px solid #ea5f00;
-    margin: 0 auto;
-    border-radius: 3px;
-    position: relative;
-  }
-
-  .reward-img {
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    width: 100%;
-    height: 100%;
-  }
-
-  @media (max-width: 767px) {
-    .reward-relative {
-      height: 100%;
-      top: 0px;
-      margin-top: 0;
-      width: auto;
-    }
-
-    .reward-relative .bottom {
-      flex-direction: column;
-    }
-
-    .reward-relative .pay-text {
-      width: 80%;
-      margin: 5px auto;
-      border: 1px solid silver;
-      padding: 6px;
-      border-radius: 4px;
-    }
-
-    .reward-body h2:after {
-      right: 40px;
-    }
-
-    .reward-body h2:after,
-    .reward-body h2:before {
-      font-size: 60px;
-    }
-
-    .reward-body h2:before {
-      left: 20px;
-    }
-  }
-</style>
-<script>
-  !function () {
-    var mask = document.querySelector('.reward-mask');
-    let close = document.querySelector('.reward-relative .close');
-    let rewardBtn = document.querySelector('.reward-btn');
-
-    let zfb = document.querySelector('#zfb'),
-      wx = document.querySelector('#wx'),
-      zfbBtn = document.querySelector('#zfbBtn'),
-      wxBtn = document.querySelector('#wxBtn');
-
-    if (zfbBtn && wxBtn) {
-      zfbBtn.addEventListener('click', () => {
-        window.Velocity(zfb, 'transition.slideLeftIn', {
-          duration: 400
-        });
-        window.Velocity(wx, 'transition.slideRightOut', {
-          display: 'none',
-          duration: 400
-        });
-      });
-
-      wxBtn.addEventListener('click', () => {
-        window.Velocity(wx, 'transition.slideRightIn', {
-          duration: 400
-        });
-        window.Velocity(zfb, 'transition.slideLeftOut', {
-          display: 'none',
-          duration: 400
-        });
-      });
-    }
-
-    rewardBtn.addEventListener('click', (e) => {
-      window.Velocity(mask, 'transition.slideDownIn', {
-        duration: 400
-      })
-    });
-
-    close.addEventListener('click', (e) => {
-      e.preventDefault();
-      window.Velocity(mask, 'transition.slideUpOut', {
-        duration: 400
-      })
-    })
-  }()
-</script>
-
   </div>
 </body>
 
@@ -1859,6 +2026,7 @@ https://blog.csdn.net/chengyuqiang/article/details/108534587&lt;br&gt;
     speed: 200
   });
 </script>
+
 
 
 

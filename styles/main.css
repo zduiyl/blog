@@ -2054,12 +2054,12 @@ p > code {
 body {
       background-color: #eee;
     }.header {
-        width: 960px;
+        width: 85%;
         margin: 0 auto;
       }
 
       .main-continer {
-        width: 960px;
+        width: 85%;
         margin: 0 auto;
       }
     body {
@@ -2175,7 +2175,9 @@ body {
     }
     .mist .site-title i {
       background: #FFFFFFfe;
-    }.box-shadow-wrapper {
+    }* {
+    text-align: left !importent;
+}.box-shadow-wrapper {
       box-shadow: none !important;
     }body {
       cursor: default;
