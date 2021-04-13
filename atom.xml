@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zduiyl.github.io/</id>
     <title>Zduiy Blog</title>
-    <updated>2021-04-13T13:01:50.055Z</updated>
+    <updated>2021-04-13T13:03:08.434Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zduiyl.github.io/"/>
     <link rel="self" href="https://zduiyl.github.io/atom.xml"/>
@@ -148,11 +148,7 @@ $ curl --head https://www.example.com<br>
 5、使用curl发送TRACE请求</p>
 <p>curl  -v -X TRACE http://10.16.191.147/<br>
 6、使用curl发送 CONNECT请求</p>
-<p>curl  -v -X CONNECT http://10.16.191.147/<br>
- <br>
-————————————————<br>
-版权声明：本文为CSDN博主「新雪兰」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。<br>
-原文链接：https://blog.csdn.net/weixin_40748006/article/details/104812786</p>
+<p>curl  -v -X CONNECT http://10.16.191.147/</p>
 <p>[root@localhost ~]# curl -v -X TRACE &quot;https://192.168.129.153:443/&quot; -k</p>
 <ul>
 <li>About to connect() to 192.168.129.153 port 443 (#0)</li>
