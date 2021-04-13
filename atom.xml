@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zduiyl.github.io/</id>
     <title>Zduiy Blog</title>
-    <updated>2021-04-13T12:59:51.237Z</updated>
+    <updated>2021-04-13T13:01:50.055Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zduiyl.github.io/"/>
     <link rel="self" href="https://zduiyl.github.io/atom.xml"/>
@@ -55,29 +55,6 @@ Value&gt; 值，经过 map 计算后输出一对 &lt;Key, Value&gt; 值；然后
         <link href="https://zduiyl.github.io/post/wen-jian-xi-tong/">
         </link>
         <updated>2021-04-13T08:27:20.000Z</updated>
-        <summary type="html"><![CDATA[<p>GFS（Google 文件系统）<br>
-HDFS</p>
-<p>IPFS https://zhuanlan.zhihu.com/p/32615963</p>
-<p>ext2 ： 早期linux中常用的文件系统<br>
-ext3 ： ext2的升级版，带日志功能<br>
-RAMFS ： 内存文件系统，速度很快<br>
-NFS ： 网络文件系统，由SUN发明，主要用于远程文件共享<br>
-MS-DOS ： MS-DOS文件系统<br>
-VFAT ： Windows 95/98 操作系统采用的文件系统<br>
-FAT ： Windows XP 操作系统采用的文件系统<br>
-NTFS ： Windows NT/XP 操作系统采用的文件系统<br>
-HPFS ： OS/2 操作系统采用的文件系统<br>
-PROC : 虚拟的进程文件系统<br>
-ISO9660 ： 大部分光盘所采用的文件系统<br>
-ufsSun : OS 所采用的文件系统<br>
-NCPFS ： Novell 服务器所采用的文件系统<br>
-SMBFS ： Samba 的共享文件系统<br>
-XFS ： 由SGI开发的先进的日志文件系统，支持超大容量文件<br>
-JFS ：IBM的AIX使用的日志文件系统<br>
-ReiserFS : 基于平衡树结构的文件系统<br>
-udf: 可擦写的数据光盘文件系统<br>
-<img src="https://zduiyl.github.io//post-images/1618304188292.jpg" alt="" loading="lazy"></p>
-]]></summary>
         <content type="html"><![CDATA[<p>GFS（Google 文件系统）<br>
 HDFS</p>
 <p>IPFS https://zhuanlan.zhihu.com/p/32615963</p>
@@ -98,9 +75,7 @@ SMBFS ： Samba 的共享文件系统<br>
 XFS ： 由SGI开发的先进的日志文件系统，支持超大容量文件<br>
 JFS ：IBM的AIX使用的日志文件系统<br>
 ReiserFS : 基于平衡树结构的文件系统<br>
-udf: 可擦写的数据光盘文件系统<br>
-<img src="https://zduiyl.github.io//post-images/1618304188292.jpg" alt="" loading="lazy"></p>
-<!-- more -->
+udf: 可擦写的数据光盘文件系统</p>
 <p>Linux</p>
 <p>ext2具有极快的速度和极小的CPU占用率，可用于硬盘和移动存储设备<br>
 ext3增加日志功能，可回溯追踪<br>
