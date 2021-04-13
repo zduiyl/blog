@@ -8,7 +8,7 @@
 <meta name="keywords" content="Zduiy静态个人博客">
 <meta name="description" content="">
 <meta name="theme-color" content="#000">
-<title>Goland gRPC | Zduiy Blog</title>
+<title>mysqldump迁移数据 | Zduiy Blog</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1618318463540">
 <link rel="stylesheet" href="/media/css/pisces.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
@@ -38,7 +38,7 @@
 
 
 
-  <meta name="description" content="Goland gRPC" />
+  <meta name="description" content="mysqldump迁移数据" />
   <meta name="keywords" content="" />
 </head>
 
@@ -190,7 +190,8 @@
       <div class="sidebar-body pisces" id="sidebar_body">
         
           
-            
+            <div class="post-side-meta" id="post_side_meta">
+              
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="/images/avatar.png"/>
@@ -226,6 +227,195 @@
 
 
 </div>
+            </div>
+            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
+              <div class="toc-box right-motion">
+  <div class="toc-wrapper auto-number auto"
+    id="toc_wrapper">
+    <ul class="markdownIt-TOC">
+<li><a href="#%E6%97%A0%E6%94%B9%E5%8A%A8%E6%88%96%E8%80%85%E5%8F%AF%E7%9B%B4%E6%8E%A5%E5%AF%BC%E5%85%A5%E7%9A%84%E8%A1%A8">无改动或者可直接导入的表</a></li>
+<li><a href="#%E9%9C%80%E6%89%8B%E5%B7%A5%E5%BD%95%E5%85%A5%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8">需手工录入数据的表</a></li>
+<li><a href="#%E9%9C%80%E4%BF%AE%E6%94%B9%E8%AF%AD%E5%8F%A5%E5%86%8D%E5%AF%BC%E5%85%A5%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8">需修改语句再导入数据的表</a></li>
+<li><a href="#%E6%95%B0%E6%8D%AE%E9%87%8F%E5%A4%A7%E7%9A%84%E8%A1%A8">数据量大的表</a></li>
+<li><a href="#%E6%94%BB%E5%87%BB%E6%95%B0%E6%8D%AE%E5%88%86%E8%A1%A8">攻击数据分表</a></li>
+</ul>
+
+  </div>
+</div>
+
+<script>
+
+  let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1;
+  let active = 'active-show', activeClass = 'active-current';
+  let tocWrapper = document.querySelector('#toc_wrapper');
+  let tocContent = tocWrapper.children[0];
+  let autoNumber = tocWrapper && tocWrapper.classList.contains('auto-number');
+
+  function addTocNumber(elem, deep) {
+    if (!elem) {
+      return;
+    }
+    let prop = elem.__proto__;
+
+    if (prop === HTMLUListElement.prototype) {
+      for (let i = 0; i < elem.children.length; i++) {
+        addTocNumber(elem.children[i], deep + (i + 1) + '.');
+      }
+    } else if (prop === HTMLLIElement.prototype) {
+      // 保存li元素
+      if (elem.children[0] && elem.children[0].__proto__ === HTMLAnchorElement.prototype) {
+        lList.push(elem);
+      }
+      for (let i = 0; i < elem.children.length; i++) {
+        let cur = elem.children[i];
+        if (cur.__proto__ === HTMLAnchorElement.prototype) {
+          if (autoNumber) {
+            cur.text = deep + ' ' + cur.text;
+          }
+        } else if (cur.__proto__ === HTMLUListElement.prototype) {
+          addTocNumber(cur, deep);
+        }
+      }
+    }
+  }
+
+  function removeParentActiveClass() {
+    let parents = tocContent.querySelectorAll('.' + active)
+    parents.forEach(function (elem) {
+      elem.classList.remove(active);
+    });
+  }
+
+  function addActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.add(activeClass);
+    }
+  }
+
+  function removeActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.remove(activeClass);
+    }
+  }
+
+  function addActiveLiElemment(elem, parent) {
+    if (!elem || elem === parent) {
+      return;
+    } else {
+      if (elem.__proto__ === HTMLLIElement.prototype) {
+        elem.classList.add(active);
+      }
+      addActiveLiElemment(elem.parentElement, parent);
+    }
+  }
+
+  function showToc() {
+    if (tocWrapper) {
+      postBody = document.querySelector('#post_body');
+      for (let i = 0; i < postBody.children.length; i++) {
+        if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
+          hList.push(postBody.children[i]);
+        }
+      }
+      if (tocWrapper.classList.contains('compress')) {
+        tocContent.classList.add('closed');
+      } else if (tocWrapper.classList.contains('no_compress')) {
+        tocContent.classList.add('expanded');
+      } else {
+        if (hList.length > 10) {
+          active = 'active-hidden'
+          tocContent.classList.add('closed');
+        } else {
+          tocContent.classList.add('expanded');
+        }
+      }
+    }
+  }
+
+  (function () {
+    // 处理不是从#一级标题开始目录
+    if (tocContent.children.length === 1 && tocContent.children[0].__proto__ === HTMLLIElement.prototype) {
+      let con = tocContent.children[0].children[0];
+      tocContent.innerHTML = con.innerHTML;
+    }
+    let markdownItTOC = document.querySelector('.markdownIt-TOC');
+    let innerHeight = window.innerHeight;
+    markdownItTOC.style = `max-height: ${innerHeight - 80 > 0 ? innerHeight - 80 : innerHeight}px`
+    addTocNumber(tocContent, '');
+  })();
+
+  document.addEventListener('scroll', function (e) {
+    if (lList.length <= 0) {
+      return;
+    }
+    let scrollTop = document.scrollingElement.scrollTop + 10;
+    let dir;
+
+    if (lastTop - scrollTop > 0) {
+      dir = 'up';
+    } else {
+      dir = 'down';
+    }
+
+    lastTop = scrollTop;
+    if (scrollTop <= 0) {
+      if (lastIndex >= 0 && lastIndex < hList.length) {
+        lList[lastIndex].classList.remove(activeClass);
+      }
+      return;
+    }
+
+    let current = 0, hasFind = false;
+    for (let i = 0; i < hList.length; i++) {
+      if (hList[i].offsetTop > scrollTop) {
+        current = i;
+        hasFind = true;
+        break;
+      }
+    }
+    if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
+      current = hList.length - 1;
+    } else {
+      current--;
+    }
+    if (dir === 'down') {
+      if (current > lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex)
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    } else {
+      if (current < lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex);
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    }
+  });
+
+
+  window.addEventListener('load', function () {
+    showToc();
+    document.querySelector('#sidebar').style = 'display: block;';
+    tocWrapper.classList.add('toc-active');
+    setTimeout(function () {
+      if ("createEvent" in document) {
+        let evt = document.createEvent("HTMLEvents");
+        evt.initEvent("scroll", false, true);
+        document.dispatchEvent(evt);
+      }
+      else {
+        document.fireEvent("scroll");
+      }
+    }, 500)
+  })
+
+</script>
+            </div>
           
         
       </div>
@@ -313,8 +503,8 @@
           <div class="section bg-color post post-page">
             <section class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://zduiyl.github.io/post/goland-grpc/">
-      Goland gRPC
+    <a class="post-title-link" href="https://zduiyl.github.io/post/mysqldump-qian-yi-shu-ju/">
+      mysqldump迁移数据
     </a>
   </h1>
   <div class="post-meta">
@@ -322,32 +512,131 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span class="language" data-lan="publish">发布于</span>
-      <span class="publish-time" data-t="2021-03-12 15:43:48">2021-03-12</span>
+      <span class="publish-time" data-t="2021-03-24 19:26:53">2021-03-24</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>1<span class="language" data-lan="minute">分钟</span></span>
+      <span>4<span class="language" data-lan="minute">分钟</span></span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>67<span class="pc-show language" data-lan="words">字数</span></span>
+      <span>618<span class="pc-show language" data-lan="words">字数</span></span>
     </span>
     
   </div>
 </section>
             <div class="post-body next-md-body" id="post_body">
-              <p>protoc 编译工具<br>
-https://www.cnblogs.com/huyuchengus/p/11235491.html</p>
-<p>gRPC简单实现<br>
-https://www.cnblogs.com/xujunkai/p/13378976.html</p>
-<p>proto3语言指南<br>
-https://www.jianshu.com/p/f6ff6381a81a</p>
-<p>protoc -I ./ pb/helloworld.proto --go_out=plugins=grpc:./</p>
-<p>protoc -I log/ log/pb/helloworld.proto --go_out=plugins=grpc:log</p>
-<p>protoc -I log/ log/pb/operationLog.proto --go_out=plugins=grpc:log</p>
+              <p>mysqldump -uroot -h主机地址 -P端口 -p &gt;/root/backup.sql</p>
+<p>mysqldump -t hy_web -uroot1 -h1.1.1.36 --tables admin  &gt; /root/hyweb_v274.sql</p>
+<h1 id="无改动或者可直接导入的表">无改动或者可直接导入的表</h1>
+<p>mysqldump -t hy_web -uroot1 -h1.1.1.36 --tables act_category admin alarm_datas alarm_log alarm_rank_copy alarm_way attack_analyzed attack_datas_example attack_datas_searcher attack_datas_submeter attack_flow attack_source attack_source_mark attack_video big_screen_config data_report_email data_report_log decoy device_datastore device_maintain_log device_maintain_task elasticsearch_outage_recode elasticsearch_recode event_solution events_tags honeynets honeypot_policy honeypots honeypots_group honeyservers hy_tag ip2address key_behavior redeem_keys serial_number stats_account stats_attack_ip stats_m_account_event stats_m_account_service stats_m_attackip_account stats_m_attackip_event stats_m_attackip_sample stats_m_attackip_service stats_m_sample_event stats_m_sample_samplename stats_m_sample_service stats_m_samplename_attackip stats_m_samplename_event stats_m_samplename_service stats_m_service_event stats_sample stats_sample_name stats_service system_manage_host system_update tag tag_data temp threat_attackips threat_file_names threat_files threat_user_pwds threaten_task tpl_alarm_rank tpl_pots tpl_pots_servers tpl_servers tpl_tag trapnode_tasks trapnodes trapnodes_group trapnodes_group_info update_record user_ad_server user_alarm_way user_email_list user_feedback user_group user_import_user_pwd user_log user_login_exam user_policy user_sub verify_code version_log visit_white_list y_log_statistics &gt; /root/hyweb_v274.sql</p>
+<h1 id="需手工录入数据的表">需手工录入数据的表</h1>
+<p>alarm_rank alarm_white_list syslog_setting</p>
+<h1 id="需修改语句再导入数据的表">需修改语句再导入数据的表</h1>
+<p>mysqldump -t hy_web -uroot1 -h1.1.1.36 --tables user user_ad user_log user_setting &gt; /root/hyweb_v274.sql</p>
+<h1 id="数据量大的表">数据量大的表</h1>
+<p>mysqldump -t hy_web -uroot1 -h1.1.1.36 --tables events &gt; /root/hyweb_v274.sql<br>
+mysqldump -t hy_web -uroot1 -h1.1.1.36 --tables tag_map &gt; /root/hyweb_v274.sql</p>
+<h1 id="攻击数据分表">攻击数据分表</h1>
+<p>mysqldump -t hy_web -uroot1 -h1.1.1.31 --ignore-table hy_web.act_category <br>
+--ignore-table hy_web.admin <br>
+--ignore-table hy_web.alarm_datas <br>
+--ignore-table hy_web.alarm_log <br>
+--ignore-table hy_web.alarm_rank_copy <br>
+--ignore-table hy_web.alarm_way <br>
+--ignore-table hy_web.attack_analyzed <br>
+--ignore-table hy_web.attack_datas_example <br>
+--ignore-table hy_web.attack_datas_searcher <br>
+--ignore-table hy_web.attack_datas_submeter <br>
+--ignore-table hy_web.attack_flow <br>
+--ignore-table hy_web.attack_source <br>
+--ignore-table hy_web.attack_source_mark <br>
+--ignore-table hy_web.attack_video <br>
+--ignore-table hy_web.big_screen_config <br>
+--ignore-table hy_web.data_report_email <br>
+--ignore-table hy_web.data_report_log <br>
+--ignore-table hy_web.decoy <br>
+--ignore-table hy_web.device_datastore <br>
+--ignore-table hy_web.device_maintain_log <br>
+--ignore-table hy_web.device_maintain_task <br>
+--ignore-table hy_web.elasticsearch_outage_recode <br>
+--ignore-table hy_web.elasticsearch_recode <br>
+--ignore-table hy_web.event_solution <br>
+--ignore-table hy_web.events_tags <br>
+--ignore-table hy_web.honeynets <br>
+--ignore-table hy_web.honeypot_policy <br>
+--ignore-table hy_web.honeypots <br>
+--ignore-table hy_web.honeypots_group <br>
+--ignore-table hy_web.honeyservers <br>
+--ignore-table hy_web.hy_tag <br>
+--ignore-table hy_web.ip2address <br>
+--ignore-table hy_web.key_behavior <br>
+--ignore-table hy_web.redeem_keys <br>
+--ignore-table hy_web.serial_number <br>
+--ignore-table hy_web.stats_account <br>
+--ignore-table hy_web.stats_attack_ip <br>
+--ignore-table hy_web.stats_m_account_event <br>
+--ignore-table hy_web.stats_m_account_service <br>
+--ignore-table hy_web.stats_m_attackip_account <br>
+--ignore-table hy_web.stats_m_attackip_event <br>
+--ignore-table hy_web.stats_m_attackip_sample <br>
+--ignore-table hy_web.stats_m_attackip_service <br>
+--ignore-table hy_web.stats_m_sample_event <br>
+--ignore-table hy_web.stats_m_sample_samplename <br>
+--ignore-table hy_web.stats_m_sample_service <br>
+--ignore-table hy_web.stats_m_samplename_attackip <br>
+--ignore-table hy_web.stats_m_samplename_event <br>
+--ignore-table hy_web.stats_m_samplename_service <br>
+--ignore-table hy_web.stats_m_service_event <br>
+--ignore-table hy_web.stats_sample <br>
+--ignore-table hy_web.stats_sample_name <br>
+--ignore-table hy_web.stats_service <br>
+--ignore-table hy_web.system_manage_host <br>
+--ignore-table hy_web.system_update <br>
+--ignore-table hy_web.tag <br>
+--ignore-table hy_web.tag_data <br>
+--ignore-table hy_web.temp <br>
+--ignore-table hy_web.threat_attackips <br>
+--ignore-table hy_web.threat_file_names <br>
+--ignore-table hy_web.threat_files <br>
+--ignore-table hy_web.threat_user_pwds <br>
+--ignore-table hy_web.threaten_task <br>
+--ignore-table hy_web.tpl_alarm_rank <br>
+--ignore-table hy_web.tpl_pots <br>
+--ignore-table hy_web.tpl_pots_servers <br>
+--ignore-table hy_web.tpl_servers <br>
+--ignore-table hy_web.tpl_tag <br>
+--ignore-table hy_web.trapnode_tasks <br>
+--ignore-table hy_web.trapnodes <br>
+--ignore-table hy_web.trapnodes_group <br>
+--ignore-table hy_web.trapnodes_group_info <br>
+--ignore-table hy_web.update_record <br>
+--ignore-table hy_web.user_ad_server <br>
+--ignore-table hy_web.user_alarm_way <br>
+--ignore-table hy_web.user_email_list <br>
+--ignore-table hy_web.user_feedback <br>
+--ignore-table hy_web.user_group <br>
+--ignore-table hy_web.user_import_user_pwd <br>
+--ignore-table hy_web.user_log <br>
+--ignore-table hy_web.user_login_exam <br>
+--ignore-table hy_web.user_policy <br>
+--ignore-table hy_web.user_sub <br>
+--ignore-table hy_web.verify_code <br>
+--ignore-table hy_web.version_log <br>
+--ignore-table hy_web.visit_white_list <br>
+--ignore-table hy_web.y_log_statistics <br>
+--ignore-table hy_web.alarm_rank <br>
+--ignore-table hy_web.alarm_white_list <br>
+--ignore-table hy_web.syslog_setting <br>
+--ignore-table hy_web.user <br>
+--ignore-table hy_web.user_ad <br>
+--ignore-table hy_web.user_log <br>
+--ignore-table hy_web.user_setting <br>
+--ignore-table hy_web.events <br>
+--ignore-table hy_web.tag_map &gt; /root/hyweb_v274_attack_datas.sql</p>
 
             </div>
             
@@ -360,7 +649,7 @@ https://www.jianshu.com/p/f6ff6381a81a</p>
     </li>
     <li class="post-copyright-link">
       <strong class="language" data-lan="link">本文链接：</strong>
-      <a href="https://zduiyl.github.io/post/goland-grpc/" title="Goland gRPC">https://zduiyl.github.io/post/goland-grpc/</a>
+      <a href="https://zduiyl.github.io/post/mysqldump-qian-yi-shu-ju/" title="mysqldump迁移数据">https://zduiyl.github.io/post/mysqldump-qian-yi-shu-ju/</a>
     </li>
     <li class="post-copyright-license">
       <strong class="language" data-lan="copyright">版权声明： </strong>
@@ -374,14 +663,14 @@ https://www.jianshu.com/p/f6ff6381a81a</p>
     <div class="nav-prev">
       
         <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="ProtoBuf(Protocol Buffer Languager)" href="https://zduiyl.github.io/post/protocol-buffer-languager/">ProtoBuf(Protocol Buffer Languager)</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="ProtoBuf(Protocol Buffer Languager)" href="https://zduiyl.github.io/post/protocol-buffer-languager/">上一篇</a>
+        <a class="nav-pc-next" title="文件系统" href="https://zduiyl.github.io/post/wen-jian-xi-tong/">文件系统</a class="nav-pc-next">
+        <a class="nav-mobile-prev" title="文件系统" href="https://zduiyl.github.io/post/wen-jian-xi-tong/">上一篇</a>
       
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="Golang" href="https://zduiyl.github.io/post/golang/">Golang</a>
-        <a class="nav-mobile-next" title="Golang" href="https://zduiyl.github.io/post/golang/">下一篇</a>
+        <a class="nav-pc-next" title="Curl Http" href="https://zduiyl.github.io/post/curl-http/">Curl Http</a>
+        <a class="nav-mobile-next" title="Curl Http" href="https://zduiyl.github.io/post/curl-http/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>

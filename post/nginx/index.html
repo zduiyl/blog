@@ -9,7 +9,7 @@
 <meta name="description" content="">
 <meta name="theme-color" content="#000">
 <title>nginx | Zduiy Blog</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1618318386929">
+<link rel="shortcut icon" href="/favicon.ico?v=1618318463540">
 <link rel="stylesheet" href="/media/css/pisces.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -201,7 +201,7 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">18</span>
+        <span class="site-item-stat-count">19</span>
         <span class="site-item-stat-name language" data-lan="article">文章</span>
       </a>
     </div>
@@ -913,6 +913,119 @@ overlay2: Docker 1.12 后推出，原生支持128层，效率比OverlayFS高，�
 vfs: 基于普通文件系统（ext、nfs等）的中间层抽象，性能差，比较占用空间，成熟度也一般&lt;br&gt;
 zfs: 最初设计为Solarias 10 上的写时文件系统，拥有不少好的特性，但对于linux 支持还不够成熟。&lt;/p&gt;
 ">文件系统</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://zduiyl.github.io/post/mysqldump-qian-yi-shu-ju/"" data-c="
+          &lt;p&gt;mysqldump -uroot -h主机地址 -P端口 -p &amp;gt;/root/backup.sql&lt;/p&gt;
+&lt;p&gt;mysqldump -t hy_web -uroot1 -h1.1.1.36 --tables admin  &amp;gt; /root/hyweb_v274.sql&lt;/p&gt;
+&lt;h1 id=&#34;无改动或者可直接导入的表&#34;&gt;无改动或者可直接导入的表&lt;/h1&gt;
+&lt;p&gt;mysqldump -t hy_web -uroot1 -h1.1.1.36 --tables act_category admin alarm_datas alarm_log alarm_rank_copy alarm_way attack_analyzed attack_datas_example attack_datas_searcher attack_datas_submeter attack_flow attack_source attack_source_mark attack_video big_screen_config data_report_email data_report_log decoy device_datastore device_maintain_log device_maintain_task elasticsearch_outage_recode elasticsearch_recode event_solution events_tags honeynets honeypot_policy honeypots honeypots_group honeyservers hy_tag ip2address key_behavior redeem_keys serial_number stats_account stats_attack_ip stats_m_account_event stats_m_account_service stats_m_attackip_account stats_m_attackip_event stats_m_attackip_sample stats_m_attackip_service stats_m_sample_event stats_m_sample_samplename stats_m_sample_service stats_m_samplename_attackip stats_m_samplename_event stats_m_samplename_service stats_m_service_event stats_sample stats_sample_name stats_service system_manage_host system_update tag tag_data temp threat_attackips threat_file_names threat_files threat_user_pwds threaten_task tpl_alarm_rank tpl_pots tpl_pots_servers tpl_servers tpl_tag trapnode_tasks trapnodes trapnodes_group trapnodes_group_info update_record user_ad_server user_alarm_way user_email_list user_feedback user_group user_import_user_pwd user_log user_login_exam user_policy user_sub verify_code version_log visit_white_list y_log_statistics &amp;gt; /root/hyweb_v274.sql&lt;/p&gt;
+&lt;h1 id=&#34;需手工录入数据的表&#34;&gt;需手工录入数据的表&lt;/h1&gt;
+&lt;p&gt;alarm_rank alarm_white_list syslog_setting&lt;/p&gt;
+&lt;h1 id=&#34;需修改语句再导入数据的表&#34;&gt;需修改语句再导入数据的表&lt;/h1&gt;
+&lt;p&gt;mysqldump -t hy_web -uroot1 -h1.1.1.36 --tables user user_ad user_log user_setting &amp;gt; /root/hyweb_v274.sql&lt;/p&gt;
+&lt;h1 id=&#34;数据量大的表&#34;&gt;数据量大的表&lt;/h1&gt;
+&lt;p&gt;mysqldump -t hy_web -uroot1 -h1.1.1.36 --tables events &amp;gt; /root/hyweb_v274.sql&lt;br&gt;
+mysqldump -t hy_web -uroot1 -h1.1.1.36 --tables tag_map &amp;gt; /root/hyweb_v274.sql&lt;/p&gt;
+&lt;h1 id=&#34;攻击数据分表&#34;&gt;攻击数据分表&lt;/h1&gt;
+&lt;p&gt;mysqldump -t hy_web -uroot1 -h1.1.1.31 --ignore-table hy_web.act_category &lt;br&gt;
+--ignore-table hy_web.admin &lt;br&gt;
+--ignore-table hy_web.alarm_datas &lt;br&gt;
+--ignore-table hy_web.alarm_log &lt;br&gt;
+--ignore-table hy_web.alarm_rank_copy &lt;br&gt;
+--ignore-table hy_web.alarm_way &lt;br&gt;
+--ignore-table hy_web.attack_analyzed &lt;br&gt;
+--ignore-table hy_web.attack_datas_example &lt;br&gt;
+--ignore-table hy_web.attack_datas_searcher &lt;br&gt;
+--ignore-table hy_web.attack_datas_submeter &lt;br&gt;
+--ignore-table hy_web.attack_flow &lt;br&gt;
+--ignore-table hy_web.attack_source &lt;br&gt;
+--ignore-table hy_web.attack_source_mark &lt;br&gt;
+--ignore-table hy_web.attack_video &lt;br&gt;
+--ignore-table hy_web.big_screen_config &lt;br&gt;
+--ignore-table hy_web.data_report_email &lt;br&gt;
+--ignore-table hy_web.data_report_log &lt;br&gt;
+--ignore-table hy_web.decoy &lt;br&gt;
+--ignore-table hy_web.device_datastore &lt;br&gt;
+--ignore-table hy_web.device_maintain_log &lt;br&gt;
+--ignore-table hy_web.device_maintain_task &lt;br&gt;
+--ignore-table hy_web.elasticsearch_outage_recode &lt;br&gt;
+--ignore-table hy_web.elasticsearch_recode &lt;br&gt;
+--ignore-table hy_web.event_solution &lt;br&gt;
+--ignore-table hy_web.events_tags &lt;br&gt;
+--ignore-table hy_web.honeynets &lt;br&gt;
+--ignore-table hy_web.honeypot_policy &lt;br&gt;
+--ignore-table hy_web.honeypots &lt;br&gt;
+--ignore-table hy_web.honeypots_group &lt;br&gt;
+--ignore-table hy_web.honeyservers &lt;br&gt;
+--ignore-table hy_web.hy_tag &lt;br&gt;
+--ignore-table hy_web.ip2address &lt;br&gt;
+--ignore-table hy_web.key_behavior &lt;br&gt;
+--ignore-table hy_web.redeem_keys &lt;br&gt;
+--ignore-table hy_web.serial_number &lt;br&gt;
+--ignore-table hy_web.stats_account &lt;br&gt;
+--ignore-table hy_web.stats_attack_ip &lt;br&gt;
+--ignore-table hy_web.stats_m_account_event &lt;br&gt;
+--ignore-table hy_web.stats_m_account_service &lt;br&gt;
+--ignore-table hy_web.stats_m_attackip_account &lt;br&gt;
+--ignore-table hy_web.stats_m_attackip_event &lt;br&gt;
+--ignore-table hy_web.stats_m_attackip_sample &lt;br&gt;
+--ignore-table hy_web.stats_m_attackip_service &lt;br&gt;
+--ignore-table hy_web.stats_m_sample_event &lt;br&gt;
+--ignore-table hy_web.stats_m_sample_samplename &lt;br&gt;
+--ignore-table hy_web.stats_m_sample_service &lt;br&gt;
+--ignore-table hy_web.stats_m_samplename_attackip &lt;br&gt;
+--ignore-table hy_web.stats_m_samplename_event &lt;br&gt;
+--ignore-table hy_web.stats_m_samplename_service &lt;br&gt;
+--ignore-table hy_web.stats_m_service_event &lt;br&gt;
+--ignore-table hy_web.stats_sample &lt;br&gt;
+--ignore-table hy_web.stats_sample_name &lt;br&gt;
+--ignore-table hy_web.stats_service &lt;br&gt;
+--ignore-table hy_web.system_manage_host &lt;br&gt;
+--ignore-table hy_web.system_update &lt;br&gt;
+--ignore-table hy_web.tag &lt;br&gt;
+--ignore-table hy_web.tag_data &lt;br&gt;
+--ignore-table hy_web.temp &lt;br&gt;
+--ignore-table hy_web.threat_attackips &lt;br&gt;
+--ignore-table hy_web.threat_file_names &lt;br&gt;
+--ignore-table hy_web.threat_files &lt;br&gt;
+--ignore-table hy_web.threat_user_pwds &lt;br&gt;
+--ignore-table hy_web.threaten_task &lt;br&gt;
+--ignore-table hy_web.tpl_alarm_rank &lt;br&gt;
+--ignore-table hy_web.tpl_pots &lt;br&gt;
+--ignore-table hy_web.tpl_pots_servers &lt;br&gt;
+--ignore-table hy_web.tpl_servers &lt;br&gt;
+--ignore-table hy_web.tpl_tag &lt;br&gt;
+--ignore-table hy_web.trapnode_tasks &lt;br&gt;
+--ignore-table hy_web.trapnodes &lt;br&gt;
+--ignore-table hy_web.trapnodes_group &lt;br&gt;
+--ignore-table hy_web.trapnodes_group_info &lt;br&gt;
+--ignore-table hy_web.update_record &lt;br&gt;
+--ignore-table hy_web.user_ad_server &lt;br&gt;
+--ignore-table hy_web.user_alarm_way &lt;br&gt;
+--ignore-table hy_web.user_email_list &lt;br&gt;
+--ignore-table hy_web.user_feedback &lt;br&gt;
+--ignore-table hy_web.user_group &lt;br&gt;
+--ignore-table hy_web.user_import_user_pwd &lt;br&gt;
+--ignore-table hy_web.user_log &lt;br&gt;
+--ignore-table hy_web.user_login_exam &lt;br&gt;
+--ignore-table hy_web.user_policy &lt;br&gt;
+--ignore-table hy_web.user_sub &lt;br&gt;
+--ignore-table hy_web.verify_code &lt;br&gt;
+--ignore-table hy_web.version_log &lt;br&gt;
+--ignore-table hy_web.visit_white_list &lt;br&gt;
+--ignore-table hy_web.y_log_statistics &lt;br&gt;
+--ignore-table hy_web.alarm_rank &lt;br&gt;
+--ignore-table hy_web.alarm_white_list &lt;br&gt;
+--ignore-table hy_web.syslog_setting &lt;br&gt;
+--ignore-table hy_web.user &lt;br&gt;
+--ignore-table hy_web.user_ad &lt;br&gt;
+--ignore-table hy_web.user_log &lt;br&gt;
+--ignore-table hy_web.user_setting &lt;br&gt;
+--ignore-table hy_web.events &lt;br&gt;
+--ignore-table hy_web.tag_map &amp;gt; /root/hyweb_v274_attack_datas.sql&lt;/p&gt;
+">mysqldump迁移数据</a>
       </div>
       
       <div class="item">
